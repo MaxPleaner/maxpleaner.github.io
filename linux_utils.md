@@ -1,5 +1,5 @@
 [cli-translate](https://github.com/MaxPleaner/cli-translate)
-(ruby) - a quick translation tool using translate-shell
+- (ruby) a quick translation tool using translate-shell
 
 [fish_functions](https://github.com/MaxPleaner/fish_functions)
 - these are like bash aliases

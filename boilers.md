@@ -27,3 +27,4 @@ Sinatra, websockets, github oAuth, server-push, and crud generator
 - a build system for static sites (using ruby tools)
 
 [backbone-rails](https://github.com/MaxPleaner/backbone-rails)
+- with subpages plugin from app academy curriculum

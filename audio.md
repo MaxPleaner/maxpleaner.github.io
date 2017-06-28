@@ -1,11 +1,11 @@
 [step_sequencer](https://github.com/MaxPleaner/step_sequencer)
-(ruby, command line) - polyrhythmic drum machine and sound manipulations
+- (ruby, command line) - polyrhythmic drum machine and sound manipulations
 
 [sounds](https://github.com/MaxPleaner/sounds)
-(ruby, command line) - turns keyboard into drum set
+- (ruby, command line) - turns keyboard into drum set
 
 [muzak](https://github.com/MaxPleaner/muzak)
-(coffeescript, html5) - a website to create sounds using oscillators, record them,
+- (coffeescript, html5) - a website to create sounds using oscillators, record them,
 and play them on a polyrhythmic grid.
 
 [music_sharing](https://github.com/MaxPleaner/music_sharing)

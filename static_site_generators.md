@@ -3,4 +3,4 @@
 Includes a in-browser file navigator / editor
 
 [markdown_directory](https://github.com/MaxPleaner/markdown_directory_browser)
-quick and easy way to make a site from markdown files
+- quick and easy way to make a site from markdown files
