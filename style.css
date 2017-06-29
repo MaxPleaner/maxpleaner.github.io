@@ -36,6 +36,9 @@ li a:hover {
   background-color: goldenrod;
 }
 
-b {
-
+#page-content {
+  font-family: "Serif";
+  border: 5px solid white;
+  margin: 20px;
+  padding: 20px;
 }
