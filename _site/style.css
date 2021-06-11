@@ -1,0 +1,45 @@
+h4 {
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
+  color: black;
+}
+
+body {
+  background-color: lightgrey;
+  font-family: "monospace";
+  font-size: 14px;
+  letter-spacing: 3px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+}
+
+li {
+  display: inline-block;
+  margin: 5px 0;
+}
+
+
+li a {
+  text-decoration: none;
+  border: 1px solid grey;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px;
+  transition: background-color 0.5s ease-in;
+}
+
+li a:hover {
+  background-color: goldenrod;
+}
+
+#page-content {
+  font-family: "Serif";
+  border: 5px solid white;
+  margin: 20px;
+  padding: 20px;
+  letter-spacing: 1px;
+}
