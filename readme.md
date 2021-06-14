@@ -2,10 +2,10 @@
 
 Hi! This site is just a collection of random little things I've made.
 
-![site under construction](./site_under_construction.gif)
-
 - [code](./pages/code.md)
 - [music](./pages/music.md)
 - [3d](./pages/3d.md)
 
 ---
+
+![site under construction](./site_under_construction.gif)
