@@ -1,6 +1,8 @@
 ## max pleaner's website
 
-Hi! This site is just a collection of random little things I've made. 
+Hi! This site is just a collection of random little things I've made.
+
+![site under construction](./site_under_construction.gif)
 
 - [code](./pages/code.md)
 - [music](./pages/music.md)
