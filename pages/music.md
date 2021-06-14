@@ -1,6 +1,6 @@
-- [code](./pages/code.md)
+- [code](./code.md)
 - music
-- [3d](./pages/3d.md)
+- [3d](./3d.md)
 
 ---
 
