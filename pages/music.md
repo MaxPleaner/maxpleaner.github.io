@@ -1,6 +1,6 @@
 - [code](./code.md)
 - music
-- [3d](./3d.md)
+- [3d / game](./3d.md)
 
 ---
 
