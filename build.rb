@@ -28,6 +28,7 @@ class SiteBuilder
 	def self.run
 		FileUtils.rm_rf("./dist/.", secure: true)
 		FileUtils.mkdir_p("./dist/public")
+
 		Dir.glob("./src/*.slim").each do |src|
 			dest = src.gsub("/src/", "/dist/").gsub(".slim", ".html")
 			render_slim(src, dest)
@@ -36,9 +37,12 @@ class SiteBuilder
 
 		Dir.glob("./src/public/**/*").each do |src|
 			dest = src.gsub("/src/", "/dist/")
-			folder = dest.split("/")[0..-1].join("/")
-			FileUtils.mkdir_p(folder)
-			FileUtils.copy(src, dest)
+			if File.directory?(src)
+				folder = dest.split("/")[0..-1].join("/")
+				FileUtils.mkdir_p(folder)
+			else
+				FileUtils.copy(src, dest) rescue binding.pry
+			end
 			puts "built #{src}"
 		end
 	end
