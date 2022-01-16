@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Max Pleaner
+    == partial("./src/shared/style.slim")
+  body
+    == partial("./src/shared/nav.slim")
+
+    sass:
+      #portfolio-images
+        padding: 30px
+        img
+          max-width: 800px
+          max-height: 400px
+          height: auto
+
+    markdown:
+
+      Skills: Houdini, Blender, Sketchup, Unity, Unreal, ZBrush
+      
+      [Gallery](/3d/gallery.html)
+
+      [Assets and tools](/3d/assets.html)
+
+    == partial("./src/shared/footer.slim") 

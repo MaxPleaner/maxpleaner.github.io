@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title Max Pleaner
+    == partial("./src/shared/style.slim")
+  body
+    == partial("./src/shared/nav.slim")
+
+    sass:
+      #portfolio-images
+        padding: 30px
+        img
+          max-width: 800px
+          max-height: 400px
+          height: auto
+
+    markdown:
+
+      [back](/3d.html)
+
+      ## Gallery 
+
+
+      <div id="portfolio-images">
+         ![](/public/portfolio/max-pleaner-kha3.jpg)
+         ![](/public/portfolio/max-pleaner-lotus.jpg)
+         ![](/public/portfolio/forest.png)
+         ![](/public/portfolio/forest-yard.png)
+         ![](/public/portfolio/megascans_cave.jpg)
+         ![](/public/portfolio/meadow.jpg) 
+         ![](/public/portfolio/trippy_tentacles.jpg)
+      </div>
+
+    == partial("./src/shared/footer.slim") 

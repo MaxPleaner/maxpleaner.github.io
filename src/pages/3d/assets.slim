@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Max Pleaner
+    == partial("./src/shared/style.slim")
+  body
+    == partial("./src/shared/nav.slim")
+
+    sass:
+      #portfolio-images
+        padding: 30px
+        img
+          max-width: 800px
+          max-height: 400px
+          height: auto
+
+    markdown:
+
+      [back](/3d.html)
+
+      ## Assets and Tools
+
+      - #### Unreal
+        - [Height_0_1](/public/unreal/Height_0_1.uasset) - A Material Function which returns the height of the current pixel, mapped to 0-1 range, relative to the object's bounding box. E.g. the lowest points on an object will return 0, and the highest points will return 1. Useful for height-based shading.
+
+    == partial("./src/shared/footer.slim") 
