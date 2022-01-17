@@ -45,7 +45,7 @@ class SiteBuilder
 			end
 		end
 		
-		puts "done"
+		puts "~~~ BUILT SITE ~~~"
 	end
 end
 
