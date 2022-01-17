@@ -1,3 +1,4 @@
+ruby build.rb
 git add -A
 git commit -m "generic commit"
 git push origin head
