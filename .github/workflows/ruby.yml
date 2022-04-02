@@ -35,7 +35,7 @@ jobs:
     - uses: docker://pandoc/core:2.9 
     
     - name: Print path
-      run: echo $GITHUB_PATH
+      run: ls /home/runner/work/maxpleaner.github.io/maxpleaner.github.io
       
     - name: Build
       run: bundle exec ruby build.rb
