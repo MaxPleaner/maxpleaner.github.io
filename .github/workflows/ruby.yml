@@ -24,8 +24,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
- 
+      
       
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
@@ -33,7 +32,7 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         
-        
+    - uses: docker://pandoc/core:2.9   
     - name: Build
       run: bundle exec ruby build.rb
       
