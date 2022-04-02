@@ -45,10 +45,10 @@ class SiteBuilder
 			end
 		end
 		
-		puts "~~~ BUILT SITE ~~~"
+		# puts "~~~ BUILT SITE ~~~"
 	end
 end
 
-if __FILE__ == $0
+# if __FILE__ == $0
 	SiteBuilder.run
-end
+# end
