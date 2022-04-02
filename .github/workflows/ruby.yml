@@ -24,9 +24,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Setup Pandoc
-      uses: docker://pandoc/core:2.9    
       
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
@@ -34,8 +31,10 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         
+    - name: Print Path
+        
     - name: Build
-      run: ruby build.rb
+      run: bundle exec ruby build.rb
       
     - name: Deploy
       uses: s0/git-publish-subdir-action@develop
