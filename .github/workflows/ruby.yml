@@ -26,7 +26,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: docker://pandoc/core:2.9
+    - name: Setup Pandoc
+      uses: docker://pandoc/core:2.9    
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
