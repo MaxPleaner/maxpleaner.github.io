@@ -32,7 +32,11 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         
-    - uses: docker://pandoc/core:2.9   
+    - uses: docker://pandoc/core:2.9 
+    
+    - name: Print path
+      run: echo $GITHUB_PATH
+      
     - name: Build
       run: bundle exec ruby build.rb
       
