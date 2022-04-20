@@ -1,5 +1,7 @@
 # SLIM STATIC
 
+[github.com/maxpleaner/slimstatic](http://github.com/maxpleaner/slimstatic)
+
 A _really easy_ static site generator using Slim and Guard.
 
 I made this because there wasn't a dead-simple way to make a static HTML site using partials (shared HTML snippets). HTML5 imports are unfortunately not gonna happen, the powers that be decided on ES modules. Which are okay, but I don't want to write a bunch of `createElement` or create HTML in Javascript by other means. Also, being able to use Slim would be a nice plus.  
