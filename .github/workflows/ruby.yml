@@ -11,7 +11,7 @@ on:
   push:
     branches: [ master ]
 
-permissions: read-all|write-all
+permissions: write-all
 
 jobs:
   build:
