@@ -2,17 +2,120 @@ doctype html
 html
   head
     == partial("./src/shared/head.slim")
+
   body
-    == partial("./src/shared/nav.slim")
+    .nav
+      h1
+        span > 
+        .nav-link
+          a href='/maxpleaner' Max Pleaner
 
-    markdown:
+    .social-links
+      .social-link
+        a href="https://linkedin.in/maxpleaner"
+          img src='/public/logos/linkedin.png'
+      .social-link
+        a href="https://github.com/maxpleaner"
+          img.bg-white src='/public/logos/github.png'
+      .social-link
+        a href="https://stackoverflow.com/users/2981429/max-pleaner"
+          img.bg-white src='/public/logos/stackoverflow.png'
+      .social-link
+        a href="https://www.instagram.com/macskamz/"
+          img.bg-white src='/public/logos/instagram.webp'
+      .social-link
+        a href="https://www.artstation.com/dissonant_protean"
+          img.bg-white src='/public/logos/artstation.jpeg'
+      .social-link
+        a href="https://www.youtube.com/channel/UCavlhcY0RxmNLN4MYDYML2g"
+          img.bg-white src='/public/logos/youtube.png'
 
-      <img src="./public/Max_Pleaner.png" />
+    .website-links
+      .website-link
+        a href='mailto:maxpleaner@gmail.com' Contact Me
+      .website-link
+        a href='/maxpleaner/website_files' Files
+      .website-link
+        a href='https://bayareashows.org' Bay Area Shows
+      .website-link
+        a href='https://dissonant.info/films' Video Streamer
 
-      A programmer, musician, and 3D artist located in the Bay Area. Currently working at [Hover](http://hover.to).
+    .skill-sections
+      .skill-section
+        header Code
+        .skill-section-logo
+          img.tooltip title='Ruby' src='/public/logos/ruby.png'
+        .skill-section-logo
+          img.tooltip title='Rails' src='/public/logos/rails.png'
+        .skill-section-logo
+          img.tooltip title='Javascript' src='/public/logos/javascript.png'
+        .skill-section-logo
+          img.tooltip title='Node' src='/public/logos/node.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='React' src='/public/logos/react.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Python' src='/public/logos/python.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='C#' src='/public/logos/csharp.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Golang' src='/public/logos/golang.png'
+        .skill-section-logo
+          img.tooltip title='SQL' src='/public/logos/sql.png'
+        .skill-section-logo
+          img.tooltip title='Redis' src='/public/logos/redis.png'
+        .skill-section-logo
+          img.tooltip title='Influx DB' src='/public/logos/influx.png'
+        .skill-section-logo
+          img.tooltip title='AWS' src='/public/logos/aws.png'
+        .skill-section-logo
+          img.tooltip title='GCP' src='/public/logos/gcp.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Linux' src='/public/logos/linux.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Nginx' src='/public/logos/nginx.svg'
+        .skill-section-logo
+          img.tooltip title='Selenium' src='/public/logos/selenium.png'
+        .skill-section-logo
+          img.tooltip title='Websockets' src='/public/logos/websockets.png'
+        .skill-section-logo
+          img.tooltip title='Arduino' src='/public/logos/arduino.jpeg'
+      .skill-section
+        header Digital Art & 3D
+        .skill-section-logo
+          img.tooltip title='Houdini' src='/public/logos/houdini.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Touch Designer' src='/public/logos/touchdesigner.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Photoshop' src='/public/logos/photoshop.jpeg'
+        .skill-section-logo
+          img.tooltip title='Zbrush' src='/public/logos/zbrush.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Unreal' src='/public/logos/unreal.svg'
+        .skill-section-logo
+          img.tooltip.bg-white title='Unity' src='/public/logos/unity.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Sketchup' src='/public/logos/sketchup.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Blender' src='/public/logos/blender.png'
+      .skill-section
+        header Music
+        .skill-section-logo
+          img.tooltip.bg-white title='VCV Rack' src='/public/logos/rack.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Ableton' src='/public/logos/ableton.jpeg'
+        .skill-section-logo
+          img.tooltip.bg-white title='The Drums' src='/public/logos/drums.png'
+        .skill-section-logo
+          img.tooltip.bg-white title='Audacity' src='/public/logos/audacity.png'
 
-      Follow links above to see more specific details.
+coffee:
+  $ ->
+    $(".tooltip").tooltipster(
+      animationDuration: 0,
+      delay: 0,
+      theme: 'tooltipster-noir',
+      plugins: ['follower'],
+      offset: [5,-5],
+    )
 
-      [LinkedIn](http://linkedin.com/in/maxpleaner) | [Github](http://github.com/maxpleaner) | [Artstation](https://www.artstation.com/dissonant_protean) | [StackOverflow](https://stackoverflow.com/users/2981429/max-pleaner)
 
-    == partial("./src/shared/footer.slim")

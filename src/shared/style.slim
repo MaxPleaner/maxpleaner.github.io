@@ -1,51 +1,76 @@
 sass:
+  body, html
+    width: 100%
   body
-    // background: url("./public/metal_sheet.jpg")
-    // background-size: 10em
-    background-color: lighten(black, 30%)
-    color: darken(white, 15%)
-    font-size: 24px
-    padding: 15px
-    font-family: 'Neucha'
+    background-color: black
+    color: white
+    font-family: 'Roboto Condensed', sans-serif
 
-  a
-    color: lightblue
+  img.bg-white
+    background-color: white
 
   .nav
-    list-style-type: none
-    margin: 0
-    padding: 0
-    overflow: hidden
-    background-color: #333
+    margin: 10px
+    display: inline-block
+  .nav-link
+    font-style: italic
+    display: inline-block
+    a, a:visited
+      color: lighten(lightgreen, 0%)
+      text-decoration: none
+      display: inline-block
+      padding-right: 10px
+    a:hover
+      outline: 2px solid white
 
-  .nav li
-    float: left
-    margin: 2px
-    outline: 1px solid white
-
-  .nav li a
+  .social-links
     display: block
-    color: white
-    text-align: center
-    padding: 14px 16px
-    text-decoration: none
+    margin-left: 10px
+  .social-link
+    display: inline-block
+    margin-left: 10px
+  .social-link img
+    width: 50px
+    height: 50px
+    border-radius: 10px
+    &:hover
+      outline: 2px solid lightgreen
 
-    &.home-link
-      color: lightgreen
+  .website-links
+    margin-left: 20px
+    margin-top: 20px
+    .website-link
+      &:not(:last-child)
+        margin-bottom: 20px
+      &:hover
+        outline: 2px solid white
+      margin-right: 10px
+      display: inline-block
+      outline: 1px solid white
+      a, a:visited
+        display: inline-block
+        font-size: 28px
+        padding: 10px
+        color: lighten(lightgreen, 0%)
+        text-decoration: none
 
-    &.selected
-      outline: 1px solid pink
-
-
-  .nav li a:hover
-    background-color: #111
-
-  #footer
-    position: fixed
-    left: 0
-    bottom: 0
-    width: 100%
-    border-top: 1px solid black
-    // background-color: grey
-    // color: white
-    text-align: center
+  .skill-sections
+    display: inline-block
+    margin-left: 20px
+    margin-top: 20px
+    max-width: 93%
+  .skill-section
+    outline: 1px solid white
+    padding: 10px
+    margin-bottom: 20px
+    header
+      font-size: 28px
+      margin-bottom: 5px
+  .skill-section-logo
+    margin-right: 10px
+    display: inline-block
+    margin-bottom: 5px
+    img
+      border-radius: 10px
+      width: 50px
+      height: 50px

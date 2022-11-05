@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Max Pleaner</title><!--Google Fonts-->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&amp;display=swap" rel="stylesheet" />
+    <script crossorigin="anonymous" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="/public/tooltipster/tooltipster.bundle.min.css"
+    <link href="/public/tooltipster/tooltipster-sideTip-noir.min.css" rel="stylesheet" />
+    <script src="/public/tooltipster/tooltipster.bundle.min.js"></script>
+    <link href="/public/tooltipster/tooltipster-follower.min.css" rel="stylesheet" />
+    <script src="/public/tooltipster/tooltipster-follower.min.js"></script>
+    <style type="text/css">
+      body, html {
+        width: 100%;
+      }
+      
+      body {
+        background-color: black;
+        color: white;
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+      
+      img.bg-white {
+        background-color: white;
+      }
+      
+      .nav {
+        margin: 10px;
+        display: inline-block;
+      }
+      
+      .nav-link {
+        font-style: italic;
+        display: inline-block;
+      }
+      
+      .nav-link a, .nav-link a:visited {
+        color: lightgreen;
+        text-decoration: none;
+        display: inline-block;
+        padding-right: 10px;
+      }
+      
+      .nav-link a:hover {
+        outline: 2px solid white;
+      }
+      
+      .social-links {
+        display: block;
+        margin-left: 10px;
+      }
+      
+      .social-link {
+        display: inline-block;
+        margin-left: 10px;
+      }
+      
+      .social-link img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+      }
+      
+      .social-link img:hover {
+        outline: 2px solid lightgreen;
+      }
+      
+      .website-links {
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+      
+      .website-links .website-link {
+        margin-right: 10px;
+        display: inline-block;
+        outline: 1px solid white;
+      }
+      
+      .website-links .website-link:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      
+      .website-links .website-link:hover {
+        outline: 2px solid white;
+      }
+      
+      .website-links .website-link a, .website-links .website-link a:visited {
+        display: inline-block;
+        font-size: 28px;
+        padding: 10px;
+        color: lightgreen;
+        text-decoration: none;
+      }
+      
+      .skill-sections {
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 20px;
+        max-width: 93%;
+      }
+      
+      .skill-section {
+        outline: 1px solid white;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      
+      .skill-section header {
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
+      
+      .skill-section-logo {
+        margin-right: 10px;
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+      
+      .skill-section-logo img {
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>
+        <span>> </span>
+        <div class="nav-link">
+          <a href="/maxpleaner">Max Pleaner</a>
+        </div>
+      </h1>
+    </div>
+    <div class="social-links">
+      <div class="social-link">
+        <a href="https://linkedin.in/maxpleaner"><img src="/public/logos/linkedin.png" /></a>
+      </div>
+      <div class="social-link">
+        <a href="https://github.com/maxpleaner"><img class="bg-white" src="/public/logos/github.png" /></a>
+      </div>
+      <div class="social-link">
+        <a href="https://stackoverflow.com/users/2981429/max-pleaner"><img class="bg-white" src="/public/logos/stackoverflow.png" /></a>
+      </div>
+      <div class="social-link">
+        <a href="https://www.instagram.com/macskamz/"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
+      </div>
+      <div class="social-link">
+        <a href="https://www.artstation.com/dissonant_protean"><img class="bg-white" src="/public/logos/artstation.jpeg" /></a>
+      </div>
+      <div class="social-link">
+        <a href="https://www.youtube.com/channel/UCavlhcY0RxmNLN4MYDYML2g"><img class="bg-white" src="/public/logos/youtube.png" /></a>
+      </div>
+    </div>
+    <div class="website-links">
+      <div class="website-link">
+        <a href="mailto:maxpleaner@gmail.com">Contact Me</a>
+      </div>
+      <div class="website-link">
+        <a href="/maxpleaner/website_files">Files</a>
+      </div>
+      <div class="website-link">
+        <a href="https://bayareashows.org">Bay Area Shows</a>
+      </div>
+      <div class="website-link">
+        <a href="https://dissonant.info/films">Video Streamer</a>
+      </div>
+    </div>
+    <div class="skill-sections">
+      <div class="skill-section">
+        <header>
+          Code
+        </header>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/ruby.png" title="Ruby" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/rails.png" title="Rails" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/javascript.png" title="Javascript" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/node.png" title="Node" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/react.png" title="React" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/python.png" title="Python" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/csharp.png" title="C#" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/golang.png" title="Golang" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/sql.png" title="SQL" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/redis.png" title="Redis" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/influx.png" title="Influx DB" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/aws.png" title="AWS" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/gcp.png" title="GCP" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/linux.png" title="Linux" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/nginx.svg" title="Nginx" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/selenium.png" title="Selenium" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/websockets.png" title="Websockets" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/arduino.jpeg" title="Arduino" />
+        </div>
+      </div>
+      <div class="skill-section">
+        <header>
+          Digital Art & 3D
+        </header>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/houdini.png" title="Houdini" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/touchdesigner.png" title="Touch Designer" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/photoshop.jpeg" title="Photoshop" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip" src="/public/logos/zbrush.png" title="Zbrush" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/unreal.svg" title="Unreal" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/unity.png" title="Unity" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/sketchup.png" title="Sketchup" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/blender.png" title="Blender" />
+        </div>
+      </div>
+      <div class="skill-section">
+        <header>
+          Music
+        </header>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/rack.png" title="VCV Rack" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/ableton.jpeg" title="Ableton" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/drums.png" title="The Drums" />
+        </div>
+        <div class="skill-section-logo">
+          <img class="tooltip bg-white" src="/public/logos/audacity.png" title="Audacity" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  (function() {
+    $(function() {
+      return $(".tooltip").tooltipster({
+        animationDuration: 0,
+        delay: 0,
+        theme: 'tooltipster-noir',
+        plugins: ['follower'],
+        offset: [5, -5]
+      });
+    });
+  
+  }).call(this);
+  
+</script>
