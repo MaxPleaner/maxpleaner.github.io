@@ -49,6 +49,19 @@
         outline: 2px solid white;
       }
       
+      .section-title {
+        margin-left: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 24px;
+        font-style: italic;
+        text-decoration: underline;
+      }
+      
+      .section-title.margin-top-none {
+        margin-top: 0px;
+      }
+      
       .social-links {
         display: block;
         margin-left: 10px;
@@ -59,29 +72,50 @@
         margin-left: 10px;
       }
       
-      .social-link img {
+      .social-link img, .band-link img {
         width: 50px;
         height: 50px;
         border-radius: 10px;
       }
       
-      .social-link img:hover {
+      .social-link img:hover, .band-link img:hover {
         outline: 2px solid lightgreen;
+      }
+      
+      .music-links .title {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      
+      .music-links ul {
+        margin-top: 0px;
+        padding: none;
+      }
+      
+      .band-title {
+        display: inline-block;
+        font-size: 20px;
+      }
+      
+      .band-link {
+        display: inline-block;
+        position: relative;
+        top: 18px;
       }
       
       .website-links {
         margin-left: 20px;
-        margin-top: 20px;
       }
       
       .website-links .website-link {
+        max-width: 93%;
         margin-right: 10px;
         display: inline-block;
         outline: 1px solid white;
       }
       
-      .website-links .website-link:not(:last-child) {
-        margin-bottom: 20px;
+      .website-links .website-link.hover-red:hover {
+        outline: 2px solid red;
       }
       
       .website-links .website-link:hover {
@@ -91,6 +125,9 @@
       @media (max-width: 700px) {
         .website-links .website-link {
           display: block;
+        }
+        .website-links .website-link:not(:last-child) {
+          margin-bottom: 20px;
         }
       }
       
@@ -105,8 +142,7 @@
       .skill-sections {
         display: inline-block;
         margin-left: 20px;
-        margin-top: 20px;
-        max-width: 93%;
+        max-width: 89%;
       }
       
       .skill-section {
@@ -117,7 +153,7 @@
       
       .skill-section header {
         font-size: 28px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
       }
       
       .skill-section-logo {
@@ -142,147 +178,202 @@
         </div>
       </h1>
     </div>
-    <div class="social-links">
-      <div class="social-link">
-        <a href="https://linkedin.in/maxpleaner"><img src="/public/logos/linkedin.png" /></a>
+    <div class="section">
+      <div class="section-title margin-top-none">
+        Social Links
       </div>
-      <div class="social-link">
-        <a href="https://github.com/maxpleaner"><img class="bg-white" src="/public/logos/github.png" /></a>
-      </div>
-      <div class="social-link">
-        <a href="https://stackoverflow.com/users/2981429/max-pleaner"><img class="bg-white" src="/public/logos/stackoverflow.png" /></a>
-      </div>
-      <div class="social-link">
-        <a href="https://www.instagram.com/macskamz/"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
-      </div>
-      <div class="social-link">
-        <a href="https://www.artstation.com/dissonant_protean"><img class="bg-white" src="/public/logos/artstation.jpeg" /></a>
-      </div>
-      <div class="social-link">
-        <a href="https://www.youtube.com/channel/UCavlhcY0RxmNLN4MYDYML2g"><img class="bg-white" src="/public/logos/youtube.png" /></a>
-      </div>
-    </div>
-    <div class="website-links">
-      <div class="website-link">
-        <a href="mailto:maxpleaner@gmail.com">Contact Me</a>
-      </div>
-      <div class="website-link">
-        <a href="/maxpleaner/files">Files</a>
-      </div>
-      <div class="website-link">
-        <a href="https://bayareashows.org">Bay Area Shows</a>
-      </div>
-      <div class="website-link">
-        <a href="https://dissonant.info/films">Video Streamer</a>
+      <div class="social-links">
+        <div class="social-link">
+          <a class="tooltip" href="mailto:maxpleaner@gmail.com" title="Email me"><img class="bg-white" src="/public/logos/gmail.png" /></a>
+        </div>
+        <div class="social-link">
+          <a class="tooltip" href="https://linkedin.in/maxpleaner" title="LinkedIn"><img src="/public/logos/linkedin.png" /></a>
+        </div>
+        <div class="social-link">
+          <a class="tooltip" href="https://www.instagram.com/macskamz/" title="Instagram"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
+        </div>
+        <div class="social-link">
+          <a class="tooltip" href="https://www.youtube.com/channel/UCavlhcY0RxmNLN4MYDYML2g" title="Youtube"><img class="bg-white" src="/public/logos/youtube.png" /></a>
+        </div>
+        <div class="social-link">
+          <a class="tooltip" href="https://www.artstation.com/dissonant_protean" title="Artstation"><img class="bg-white" src="/public/logos/artstation.jpeg" /></a>
+        </div>
+        <div class="social-link">
+          <a class="tooltip" href="https://github.com/maxpleaner" title="Github"><img class="bg-white" src="/public/logos/github.png" /></a>
+        </div>
+        <div class="social-link">
+          <a class="tooltip" href="https://stackoverflow.com/users/2981429/max-pleaner" title="Stack Overflow"><img class="bg-white" src="/public/logos/stackoverflow.png" /></a>
+        </div>
       </div>
     </div>
-    <div class="skill-sections">
-      <div class="skill-section">
-        <header>
-          Code
-        </header>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/ruby.png" title="Ruby" />
+    <div class="section">
+      <div class="section-title">
+        My Other Websites
+      </div>
+      <div class="website-links">
+        <div class="website-link">
+          <a class="tooltip" href="/maxpleaner/files" title="My public files">Files</a>
         </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/rails.png" title="Rails" />
+        <div class="website-link">
+          <a class="tooltip" href="https://bayareashows.org" title="Auto-scraped Bay Area concert listings">Bay Area Shows</a>
         </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/javascript.png" title="Javascript" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/node.png" title="Node" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/react.png" title="React" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/python.png" title="Python" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/csharp.png" title="C#" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/golang.png" title="Golang" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/sql.png" title="SQL" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/redis.png" title="Redis" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/influx.png" title="Influx DB" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/aws.png" title="AWS" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/gcp.png" title="GCP" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/linux.png" title="Linux" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/nginx.svg" title="Nginx" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/selenium.png" title="Selenium" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/websockets.png" title="Websockets" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/arduino.jpeg" title="Arduino" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/pi.png" title="Raspberry Pi" />
+        <div class="website-link hover-red">
+          <a class="tooltip" href="https://dissonant.info/films" title="Stream my movie collection (ask me for access)">Video Streamer</a>
         </div>
       </div>
-      <div class="skill-section">
-        <header>
-          Digital Art & 3D
-        </header>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/houdini.png" title="Houdini" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/touchdesigner.png" title="Touch Designer" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/photoshop.jpeg" title="Photoshop" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip" src="/public/logos/zbrush.png" title="Zbrush" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/unreal.svg" title="Unreal" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/unity.png" title="Unity" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/sketchup.png" title="Sketchup" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/blender.png" title="Blender" />
-        </div>
+    </div>
+    <div class="section">
+      <div class="section-title">
+        Skills
       </div>
-      <div class="skill-section">
-        <header>
-          Music
-        </header>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/rack.png" title="VCV Rack" />
+      <div class="skill-sections">
+        <div class="skill-section">
+          <header>
+            Code
+          </header>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/ruby.png" title="Ruby" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/rails.png" title="Rails" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/javascript.png" title="Javascript" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/node.png" title="Node" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/react.png" title="React" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/python.png" title="Python" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/csharp.png" title="C#" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/golang.png" title="Golang" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/sql.png" title="SQL" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/redis.png" title="Redis" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/influx.png" title="Influx DB" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/aws.png" title="AWS" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/gcp.png" title="GCP" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/linux.png" title="Linux" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/nginx.svg" title="Nginx" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/selenium.png" title="Selenium" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/websockets.png" title="Websockets" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/arduino.jpeg" title="Arduino" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/pi.png" title="Raspberry Pi" />
+          </div>
         </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/ableton.jpeg" title="Ableton" />
+        <div class="skill-section">
+          <header>
+            Digital Art & 3D
+          </header>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/houdini.png" title="Houdini" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/touchdesigner.png" title="Touch Designer" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/photoshop.jpeg" title="Photoshop" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip" src="/public/logos/zbrush.png" title="Zbrush" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/unreal.svg" title="Unreal" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/unity.png" title="Unity" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/sketchup.png" title="Sketchup" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/blender.png" title="Blender" />
+          </div>
         </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/drums.png" title="The Drums" />
-        </div>
-        <div class="skill-section-logo">
-          <img class="tooltip bg-white" src="/public/logos/audacity.png" title="Audacity" />
+        <div class="skill-section">
+          <header>
+            Music
+          </header>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/rack.png" title="VCV Rack" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/ableton.jpeg" title="Ableton" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/drums.png" title="The Drums" />
+          </div>
+          <div class="skill-section-logo">
+            <img class="tooltip bg-white" src="/public/logos/audacity.png" title="Audacity" />
+          </div>
+          <div class="music-links">
+            <div class="title">
+              My Bands / Projects
+            </div>
+            <ul>
+              <li>
+                <div class="band-title">
+                  Half Rotten Goddess (Epic Melodic Punk)
+                </div>
+                <div class="band-link">
+                  <a class="tooltip" href="https://www.instagram.com/halfrottengoddess/" title="Instagram"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
+                </div>
+                <div class="band-link">
+                  <a class="tooltip" href="https://www.facebook.com/HalfRottenGoddess" title="Facebook"><img class="bg-white" src="/public/logos/facebook.webp" /></a>
+                </div>
+              </li>
+              <li>
+                <div class="band-title">
+                  War of Knives (Metal)
+                </div>
+                <div class="band-link">
+                  <a class="tooltip" href="https://warofknives.bandcamp.com/album/demo" title="Bandcamp"><img class="bg-white" src="/public/logos/bandcamp.png" /></a>
+                </div>
+                <div class="band-link">
+                  <a class="tooltip" href="https://www.instagram.com/warofknives" title="Instagram"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
+                </div>
+                <div class="band-link">
+                  <a class="tooltip" href="https://www.facebook.com/warofknives" title="Facebook"><img class="bg-white" src="/public/logos/facebook.webp" /></a>
+                </div>
+              </li>
+              <li>
+                <div class="band-title">
+                  Dissonant Protean (Solo Experimental Electronic)
+                </div>
+                <div class="band-link">
+                  <a class="tooltip" href="https://dissonant-protean.bandcamp.com/" title="Bandcamp"><img class="bg-white" src="/public/logos/bandcamp.png" /></a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ sass:
   img.bg-white
     background-color: white
 
+
   .nav
     margin: 10px
     display: inline-block
@@ -23,30 +24,57 @@ sass:
     a:hover
       outline: 2px solid white
 
+  .section-title
+    margin-left: 20px
+    margin-top: 30px
+    margin-bottom: 30px
+    font-size: 24px
+    font-style: italic
+    text-decoration: underline
+    &.margin-top-none
+      margin-top: 0px
+
   .social-links
     display: block
     margin-left: 10px
   .social-link
     display: inline-block
     margin-left: 10px
-  .social-link img
+  .social-link img, .band-link img
     width: 50px
     height: 50px
     border-radius: 10px
     &:hover
       outline: 2px solid lightgreen
 
+  .music-links
+    .title
+      font-size: 20px
+      margin-top: 10px
+    ul
+      margin-top: 0px
+      padding: none
+  .band-title
+    display: inline-block
+    font-size: 20px
+  .band-link
+    display: inline-block
+    position: relative
+    top: 18px
+
   .website-links
     margin-left: 20px
-    margin-top: 20px
     .website-link
-      &:not(:last-child)
-        margin-bottom: 20px
+      max-width: 93%
+      margin-right: 10px
+      &.hover-red:hover
+        outline: 2px solid red
       &:hover
         outline: 2px solid white
-      margin-right: 10px
       display: inline-block
       @media (max-width: 700px)
+        &:not(:last-child)
+          margin-bottom: 20px
         display: block
 
       outline: 1px solid white
@@ -60,15 +88,14 @@ sass:
   .skill-sections
     display: inline-block
     margin-left: 20px
-    margin-top: 20px
-    max-width: 93%
+    max-width: 89%
   .skill-section
     outline: 1px solid white
     padding: 10px
     margin-bottom: 20px
     header
       font-size: 28px
-      margin-bottom: 5px
+      margin-bottom: 10px
   .skill-section-logo
     margin-right: 10px
     display: inline-block
