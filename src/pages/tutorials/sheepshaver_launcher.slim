@@ -1,0 +1,199 @@
+doctype html
+html
+    markdown:
+      # Launching Mac OS 9 / Sheepshaver games in Launchbox / Bigbox
+
+      _5/22/2022_
+
+      _Note: most of this would probably be the same for other game launchers like RetroPie / EmulationStation_
+
+      _Note: this tutorial is for **Windows**. If you're on a Unix system, you may be able to learn some things
+      but the specific programs / batch scripts clearly won't work verbatim_.
+
+      ### Table of Contents
+
+      - [Intro](#intro-my-machine)
+      - [SheepShaver initial setup - Installing OS 9](#sheepshaver-initial-setup-installing-os-9)
+      - [Running games on Mac](#running-games-on-mac)
+      - [Controller Mapping - AntiMicroX](#controller-mapping-antimicrox)
+      - [The Launcher](#the-launcher)
+
+      ---
+
+      ### Intro / My Machine
+
+      Seems like an oddly specific topic for a tutorial? Yeah, it kinda is, but let me give some context.
+
+      I have been setting up a standalone emulation computer over the past couple weeks. Specifically, I was recommended to get at least a 4th gen i7, and I found a used Dell Desktop with 16GB RAM and an AMD RX 550 for $400 on NewEgg. I went with the 500GB HDD, which was a mistake! Definitely go for the SSD so you can have faster boot times.
+
+      Anyway, my goal is to have something plugged into my TV which I can just turn on and navigate with a game controller - keyboard/mouse should _not_ be required. This is so I can really get that "game console" feel.
+
+      Launchbox / Big Box are fantastic for this purpose. I tried EmulationStation on Linux at first (trust me, I do _not_ prefer Windows) - this is what Retropie uses, by the way - but it was just janky, and then I decided to go with Launchbox. It's a much more polished program, albeit only runs on Windows. So, yet again I found myself in that regrettable situation where I had to leave Ubuntu ... until next time😢.
+
+      You do have to pay for Launchbox premium to get controller navigation and access to Big Box (which is its more "console" oriented interface). However, that's not required for this tutorial and this will all work in standard Launchbox (or, as I mentioned, other launcher programs with some tweaks).
+
+      Launchbox / Bigbox has seamless integration with Retroarch which can run _most_ emlators. However it does not run old Mac games, so to launch those we need some special (and tricky) configuration, hence this tutorial. I spent far too long getting this to work, and found myself questioning my sanity / obsessive tendencies (probably had a point!).
+
+      ### SheepShaver initial setup - Installing OS 9
+
+      **Note: Feel free to skip if you've already done this**
+
+      1. Download the program from [here](https://www.emaculation.com/forum/viewtopic.php?f=20&t=7360)
+
+      2. Download Mac OS 9.0.4 Installer from [here](https://macintoshgarden.org/apps/macintosh-system-922-1021-power-macintosh-g4-mirrored-drive-doors-mdd#Mac_OS_9.0.4)
+
+      3. Unzip the Mac OS 9.0.4 Installer and mark the `.toast` file as Read-Only via its "Properties" menu.
+
+      4. Download the "New World" ROMs from [here](https://www.macintoshrepository.org/7038-all-macintosh-roms-68k-ppc-) (we don't really _all_ of them, but it doesn't hurt).
+
+      5. Open SheepShaverGUI, navigate to the Memory/Misc tab. Set the RAM to something higher (I used 1024 MB) and specify the ROM file `newworld86.rom`.
+
+      6. Go to the "Volumes" tab, press "Add" and navigate to your Mac OS Installer file.
+
+      7. Still in the "Volumes" tab, press "create" and give a new name for the drive, ending in `.hsv` extension, e.g. `OS9.hsv`. Give it a decent size - 500MB to 2GB - this will be the drive that Mac OS is installed to. The installation itself requires around 250MB of space; it's up to you how much extra space you want to add here. You can store games in this drive, but you can always create additional drives.
+
+      8. Make sure the installer volume is _first_ in the list. This ensures it's the one which gets booted into.
+
+      9. Make sure the "Mount drives" option is enabled and exposes the drives you want to use. E.g. I want to copy files from my Windows C: and D: drives to Mac OS so I put `CD` in this field.
+
+      9. Some further configuration (optional): In "Graphics/Sound", you _can_ change Video Type to "Fullscreen" but I recommend instead using "Windowed" with Width/Height set to "Maximum". Fullscreen occasionally caused system-wide crashes for me. I also recommend changing the Render Driver to OpenGL or Direct3D. Apparently it's fine to turn off the JIT Compiler in the "JIT Compiler" tab, but I didn't see much effect either way.
+
+      10. Press start! The Installer should boot. If you see an error that it "must be on the original disk", you forgot to mark the installer as read-only. You will be promped to format the disk and Mac OS will install there (which can take maybe 10 min).
+
+      11. Exit Mac OS via Special => Shutdown
+
+      12. Open SheepShaverGUI again, remove the installation Volume. From this point you can launch Mac OS via SheepShaverGUI or the regular SheepShaver executable (to skip the GUI). 
+
+      ### Running Games on Mac
+
+      **Note: Feel free to skip if you already know how to do this**
+
+      When you download games, they will usually come as `.sit` or `.bin` files. These are old compression formats and you can use Stuffit Expander _on Mac OS_ to extract them. 
+
+      To find Stuffit (or any other program) you can use "Sherlock" which is like an early version of spotlight. If you're using Sherlock, make sure to uncheck "My PC" (your host Windows drive) or else it will take forever! You can also download Stuffit from [here](https://www.macintoshrepository.org/2475-stuffit-expander-and-dropstuff-w-ee-5-5).
+
+      Once you extract the game, you should be able to just install/run it as normal. If there's no sound, don't be alarmed! Just turn up the volume from the bottom toolbar (it's set to 0 by default). 
+
+      I should mention, in my experience it didn't work well to run Stuffit or the games via "My PC". It's better to copy stuff to the Mac OS drive before extracting / running. You can usually copy the extracted files back to "My PC" afterwards althoug this doesn't always work.
+
+      ### Controller Mapping - AntiMicroX
+
+      1. Download [the program](https://github.com/AntiMicroX/antimicrox/releases/latest)
+
+      2. Open it and test that your controller inputs register correctly. If they do, you're lucky! I personally use an 8bitdo controller and I had issues with some of the cheaper ones. $30-$50 a controller seems like a lot but the $15 ones I tried just didn't work.
+
+      3. Set up some basic mappings for testing purposes (can always change this later). E.g. Right stick to control the mouse, Left stick / D pad for arrows. X to click.
+
+      4. Save the profile somewhere and give it a name. It will auto-load the next time you start AntiMicroX.
+
+      5. Test in SheepShaver. You might have to adjust the mouse sensitivity.
+
+      6. Note that you can create as many profiles as needed, one per game is fine. 
+
+      ### The Launcher
+
+      Now for the meat of the matter!
+
+      How this is gonna work, as an overview:
+
+      - On Mac OS, we make an Applescript in the Startup folder
+      - The Applescript reads a text file on Windows for a game path and starts that application.
+      - Our actual launcher scripts (run on Windows / Launchbox) will write a path to this text file and then boot SheepShaver. They will also boot AntiMicroX with the correct mapping file and then kill it when SheepShaver quits. 
+
+      #### Step 1: Applescript Startup file
+
+      So first of all we're going to need to make sure we have a working Applescript environment in Mac OS. I'm gonna save you some time and just tell you to download [Script debugger 1.0.3](https://www.macintoshrepository.org/32883-script-debugger-1-0), since the built-in Script Editor would always crash upon save. Note that you _cannot_ just create Applescripts from your host Windows machine - they won't execute.
+
+      Install this on the Mac, open it, and create a new script with the following content:
+
+      ```
+      set txtFile to ("This PC:Users:max:Desktop:launcher_file.txt")
+      set appPath to (read file txtFile)
+      tell application appPath to open
+
+      ```
+
+      **Important** You must replace `Users:max:Desktop:launcher_file.txt` with a location on your (Windows) system. Use colons, not slashes, to distinguish folders. Create an empty `launcher_file.txt` at this location.
+
+      Save the Applescript under any name, but make sure to give it the type "Application". Uncheck all checkboxes (Stay open, show startup screen, save debugging information).
+
+      Move the script to the startup folder (System Folder / Startup Items).
+
+      #### Step 2: Windows Launcher script
+
+      Create a new file in your Windows text editor of choice, save it as `launcher_common.bat`:
+
+      ```
+      @echo off
+
+      Rem WRITE THE PATH TO THE LAUNCH FILE
+      (echo|set /p= %1)>C:\Users\max\Desktop\launcher_file.txt
+
+      Rem START ANTIMICROX FOR CONTROLLER MAPPING
+      START /B CMD /C CALL "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AntiMicroX\AntiMicrox.lnk" --profile %2
+
+      Rem LAUNCH SHEEPSHAVER
+      cd C:\Users\max\Desktop\os\mac\Sheepsaver
+      start /W SheepShaver.exe
+
+      Rem KILL ANTIMICROX
+      taskkill /f /im antimicrox.exe
+
+      Rem EMPTY OUT THE LAUNCH FILE AFTER
+      echo|set /p= > C:\Users\max\Desktop\launcher_file.txt
+      ```
+
+      **Important** you must replace all the paths in here with the ones on your system!
+
+      - `launcher_file.txt`
+      - `AntiMicrox.lnk`
+      - the SheepShaver folder
+
+      The `AntiMicroX.lnk` file can be found by typing "AntiMicroX" into Windows search and pressing "Show File Location". We use the symlink so we can start it minimized - to do this, right click the file, go to "Properties => Shortcut" and change the "Run" mode there. Note that "minimized" in this context means it won't show up on your toolbar at all - you'll have to go to the system tray if you want to see it.
+
+      Next, it's time to create launchers for specific games. Thankfully, these are simpler. All we need to do is call `launcher_common.bat` and pass it two argumrnts:
+
+      - The Mac OS path of our game to launch.
+      - The controller mapping file
+
+       For example, this is my `munchies.bat` launcher:
+
+      ```
+      C:\Users\max\Desktop\roms\mac\launchers\launcher_common.bat "OS9:Custom:munchies:munchies" "C:\Users\max\Desktop\os\antimicrox\munchies.gamecontroller.amgp"
+      ```
+
+      Remember that the path here (`OS9:Custom:munchies:munchies`) is read by Mac OS. To get the game path in Mac OS, click on the executable and press "File => Get Info".
+
+      Now we've done the hard work, and we can test it! Close SheepShaver and AntiMicroX, doubleclick your game launcher `.bat` file, and check if AntiMicroX / SheepShaver were booted!
+      
+      One caveat - not all games will be able to get launched this way. For example, Munchies for some reason will only auto-launch when you do Special => Shutdown. But I think most games should work with this approach.
+
+      #### Step 3: Quit SheepShaver with controller
+
+      Currently, the only way to exit SheepShaver with the controller is to go to Special => Shutdown. But we can map this to a specific button in AntiMicroX:
+
+      Create a file `.kill_sheepshaver.bat`:
+
+      ```
+      taskkill /f /im SheepShaver.exe
+      ```
+
+      Then, in AntiMicroX, open the mapping for a particular key (I use "select") and go to "Advanced". In "Assignments", create a new "Executable" entry and point it to your `kill_sheepshaver.bat` script. Press "Insert" to save. You should now be able to force kill SheepShaver with one button! You'll get an annoying warning that Mac OS wasn't shut down correctly, but this can be disabled in Mac OS general settings.
+
+      #### Step 4: Add it to Launchbox (finally!)
+
+      If you thought that was a lot of work, can you imagine doing it without a tutorial?
+      At last, it's time to add our games to Launchbox.
+
+      Start by opening Launchbox, go to "tools => manage => emulators" and create a new entry named "SheepShaver" (or whatever you want). For the "application path", you're going to want to quickly create _one last batch file_, call this `launchbox_mac_os_9.bat` or something like that. Populate it like so:
+
+      ```
+      %1
+      ``` 
+
+      Yes, that's right, just `%1`, nothing else in there. Because our game launchers contain all the logic themselves, we don't need to do anything here other than just fire off the launchers. But for some reason Launchbox requires us to make this wrapper. Save it, and go ahead and scan your launcher .bat files in. 
+
+      Voila. 
+
+      If you found this useful or something's not working feel free to email me at maxpleaner@gmail.com
+
