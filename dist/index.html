@@ -380,17 +380,13 @@
   </body>
 </html>
 <script>
-  (function() {
-    $(function() {
-      return $(".tooltip").tooltipster({
-        animationDuration: 0,
-        delay: 0,
-        theme: 'tooltipster-noir',
-        plugins: ['follower'],
-        offset: [5, -5]
-      });
-    });
-  
-  }).call(this);
-  
+  $(function(){
+    $(".tooltip").tooltipster({
+      animationDuration: 0,
+      delay: 0,
+      theme: 'tooltipster-noir',
+      plugins: ['follower'],
+      offset: [5,-5],
+    })
+  })
 </script>

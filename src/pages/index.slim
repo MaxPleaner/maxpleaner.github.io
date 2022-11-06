@@ -143,14 +143,15 @@ html
                   a.tooltip title='Bandcamp' href="https://dissonant-protean.bandcamp.com/"
                     img.bg-white src='/public/logos/bandcamp.png'
 
-coffee:
-  $ ->
-    $(".tooltip").tooltipster(
+javascript:
+  $(function(){
+    $(".tooltip").tooltipster({
       animationDuration: 0,
       delay: 0,
       theme: 'tooltipster-noir',
       plugins: ['follower'],
       offset: [5,-5],
-    )
+    })
+  })
 
 
