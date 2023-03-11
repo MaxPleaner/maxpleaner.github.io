@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"></script>
+
+    <style>
+      #instructions {
+        width: 100vh;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor"
+      <h1>Icon Layout</h1>
+      <label for="#page-width">page width (inch)</label>
+      <input type='number' id="page-width" value="8.5" step="0.1">
+      <br>
+      <label for="#page-height">page height (inch)</label>
+      <input type='number' id="page-height" value="11" step="0.1">
+      <br>
+      <label for="#icon-size">icon size (centimeter)</label>
+      <input type='number' id="icon-size" value="0.6" step="0.01">
+      <br>
+      <label for="#icon-padding-horizontal">icon horizontal padding (centimeter)</label>
+      <input type='number' id="icon-padding-horizontal" value="0.05" step="0.01">
+      <br>
+      <label for="#icon-padding-vertical">icon vertical padding (centimeter)</label>
+      <input type='number' id="icon-padding-vertical" value="0.05" step="0.01">
+
+      <br>
+      <p><b>Instructions</b></p>
+      <p><i>Each line should contain comma separated values name/count/number, for example:</i></p>
+      <p><pre>
+        5, dog, http://pictures.com/dog.jpg
+        10, cat, http://pictures.com/cat.png
+      </pre></p>
+      <textarea id="instructions">
+100, cat1, https://e7.pngegg.com/pngimages/238/156/png-clipart-meng-pet-cat-meng-chong-kitty.png
+100, cat2, https://png.pngtree.com/png-vector/20201226/ourmid/pngtree-sitting-british-shorthair-cat-png-image_2642250.jpg
+      </textarea>
+      <button id="submit">submit</button>
+    </div>
+    <div id="results">
+    </div>
+
+  <script>
+    $(function() {
+      hasConfigObj = location.search.split("?data=")[1]
+      if (hasConfigObj) {
+        queryParams = new URLSearchParams(new URL(location.href).search);
+        data = JSON.parse(queryParams.get("data").slice(0, -1))
+        $("#editor").hide()
+        $results = $("#results")
+        $results
+          .css("outline", "1px solid black")
+          .css("width", `${data.config.pageWidth}in`)
+          .css("height", `${data.config.pageHeight}in`)
+
+        data.instructions.forEach(([count, name, url]) => {
+          for (let i = 0; i < count; i++) {
+            $img = $("<img>").attr("src", url)
+            $img.css("width", `${data.config.iconSize}cm`)
+            $img.css("height", `${data.config.iconSize}cm`)
+            $img.css("margin-right", `${data.config.iconPaddingHorizontal / 2}cm`)
+            $img.css("margin-left", `${data.config.iconPaddingHorizontal / 2}cm`)
+            $img.css("margin-top", `${data.config.iconPaddingVertical / 2}cm`)
+            $img.css("margin-bottom", `${data.config.iconPaddingVertical / 2}cm`)
+            $results.append($img)
+          }
+        })
+
+        $("html,body").css("margin", "0px")
+
+      }
+
+      $("#submit").on("click", () => {
+
+        data = {}
+        data["config"] = {
+          "pageWidth": parseFloat($("#page-width").val()),
+          "pageHeight": parseFloat($("#page-height").val()),
+          "iconSize": parseFloat($("#icon-size").val()),
+          "iconPaddingHorizontal": parseFloat($("#icon-padding-horizontal").val()),
+          "iconPaddingVertical": parseFloat($("#icon-padding-vertical").val())
+        }
+
+        instructionsRaw = $("#instructions").val()
+        data["instructions"] = instructionsRaw.split("\n").map((line) => {
+          return line.split(",").map((part) => part.trim())
+        }).filter((x) => x.length == 3).map(([count, name, url]) => {
+          return [parseInt(count), name, url]
+        })
+        debugger
+
+        paramsStr = new URLSearchParams(JSON.stringify(data)).toString();
+        search = `data=${paramsStr}`
+        newPath = location.href + `?${search}`
+        window.open(newPath, "_blank")
+
+      })
+    })
+  </script>
+  </body>
+</html>
