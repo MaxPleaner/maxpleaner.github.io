@@ -40,8 +40,8 @@
       </pre></p>
       <p><i>Additional width(cm), height(cm) values are optional, and will override the default sticker size>. If height is omitted, it will be auto-calculated based on the width.</i></p>
       <p><pre>
-5, hamster, https://media.tenor.com/vLEZ2KX_AIEAAAAM/hampton-hamster.gif
-5, coffeescript, https://cdn.iconscout.com/icon/free/png-256/coffee-script-3629290-3031874.png
+5, hamster, https://media.tenor.com/vLEZ2KX_AIEAAAAM/hampton-hamster.gif, 5
+5, coffeescript, https://cdn.iconscout.com/icon/free/png-256/coffee-script-3629290-3031874.png, 4.5, 2.0
       </pre></p>
       <textarea id="instructions">
 10, hamster, https://media.tenor.com/vLEZ2KX_AIEAAAAM/hampton-hamster.gif
@@ -96,7 +96,7 @@
         instructionsRaw = $("#instructions").val()
         data["instructions"] = instructionsRaw.split("\n").map((line) => {
           return line.split(",").map((part) => part.trim())
-        }).filter((x) => x.length == 3).map(([count, name, url, width, height]) => {
+        }).filter((x) => x.length >= 3).map(([count, name, url, width, height]) => {
           return [
             parseInt(count),
             name,
