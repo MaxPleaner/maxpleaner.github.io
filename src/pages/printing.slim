@@ -2,6 +2,10 @@ doctype html
 html
   head
     == partial("./src/shared/head.slim")
+    css:
+      h3 {
+        text-decoration: underline;
+      }
     
 
   body style='padding: 20px; max-width: 80vw'
@@ -15,27 +19,39 @@ html
     
     h3 services
 
-    h4 stickers
-    
-    p I will print and die-cut however many stickers you can fit onto a standard 8x11 sheet
-      You can include multiple designs on the same sheet.
-      If you have photoshop you can send me a .png export. The background should be transparent.
-      Pick matte or glossy water-resistant paper (I think glossy looks better, but it's your call)
-      
-    h4 posters
+    ul
+      li
+        p
+          b Stickers    
+        p I will print and die-cut however many stickers you can fit onto a standard 8x11 sheet.
+          You can include multiple designs on the same sheet.
+          If you have photoshop you can send me a .png export. The background should be transparent.
+          Pick matte or glossy water-resistant paper (I think glossy looks better, but it's your call)
+          
+      li
+        p
+          b Posters
+        p I can print posters up to 13x17 size. I can cut to smaller size if you prefer. Make sure your image has adequate size and resolution.
+          I can do some tricks to upscale it otherwise. 
 
-    p I can print posters up to 13x17 size. I can cut to smaller size if you prefer. Make sure your image has adequate size and resolution.
-      I can do some tricks to upscale it otherwise. 
+      li
+        p
+          b Stencils
+        p I cut stencils on transparency film, which is not the most sturdy stuff in the world but is reusable.
+          They can have some pretty fine detail but with stencils you have to be aware that you cannot have holes,
+          e.g. many letters such as a/e/o/d/b/p/g will require you to use a custom font which is designed for stencils.
+          Standard letter paper size (8 by 11).
 
-    h4 stencils
+      li
+        p
+          b Patches
+        p This basically involves cutting a stencil and then putting two layers of white fabric paint on black canvas material. 
 
-    p I cut stencils on transparency film, which is not the most sturdy stuff in the world but is reusable.
-      They can have some pretty fine detail but with stencils you have to be aware that you cannot have holes,
-      e.g. many letters such as a/e/o/d/b/p/g will require you to use a custom font which is designed for stencils.
-      Standard letter paper size (8 by 11).
+    h3 prices
 
-    h4 patches
-
-    p This basically involves cutting a stencil and then putting two layers of white fabric paint on black canvas material. 
+    ul
+      li Sticker and stencil orders have a $10 setup fee, and then cost $3 per 8 x 11 sheet.
+      li Posters are $4 each with no setup fee, unless you want me to do upscaling / cleanup first, which will be $10
+      li Patches involves first ordering a stencil sheet and then an additional $3 per patch
 
       
