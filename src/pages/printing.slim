@@ -1,57 +1,53 @@
 doctype html
-html
+html lang="en"
   head
-    == partial("./src/shared/head.slim")
-    css:
-      h3 {
-        text-decoration: underline;
-      }
-    
+    == partial("./src/shared/head.slim", current_page: nil)
+  body
+    == partial("./src/shared/nav.slim", current_page: 'printing')
 
-  body style='padding: 20px; max-width: 80vw'
+    h1 Printing
 
-    h2 Skam Stix short run printing services
+    p
+      i Low-volume orders available at low-cost. Message me on Instagram if interested.
 
-    h3 contact
+    div.printing-box
+      h3 Stickers
+      p.printing-desc
+        | I print laminated, die cut stickers using an Injket, glossy sticker paper, and a Silhouette Portrait 3.
+      .printing-img-container
+        img.printing-img src='/public/stickers.png'
 
-    p send a message on instagram @macskamz or text me at 415 706 0904
-      local pickup in oakland, or i can mail stuff (posters will be expensive to mail though).
-    
-    h3 services
+    div.printing-box
+      h3 Stencils
+      p.printing-desc
+        | Stencils are made on letter size transparency sheets (fairly durable and reusable) using the Silhouette Portrait 3 die cutter.
+      .printing-img-container
+        img.printing-img src='/public/stencils.png'
 
-    ul
-      li
-        p
-          b Stickers    
-        p I will print and die-cut however many stickers you can fit onto a standard 8x11 sheet.
-          You can include multiple designs on the same sheet.
-          If you have photoshop you can send me a .png export. The background should be transparent.
-          Pick matte or glossy water-resistant paper (I think glossy looks better, but it's your call)
-          
-      li
-        p
-          b Posters
-        p I can print posters up to 13x17 size. I can cut to smaller size if you prefer. Make sure your image has adequate size and resolution.
-          I can do some tricks to upscale it otherwise. 
+    div.printing-box
+      h3 Screen Printing
+      p.printing-desc
+        | I stretch my own screens and can print images up to 13x17" poster size.
+      .printing-img-container
+        img.printing-img src='/public/screenprint.png'
 
-      li
-        p
-          b Stencils
-        p I cut stencils on transparency film, which is not the most sturdy stuff in the world but is reusable.
-          They can have some pretty fine detail but with stencils you have to be aware that you cannot have holes,
-          e.g. many letters such as a/e/o/d/b/p/g will require you to use a custom font which is designed for stencils.
-          Standard letter paper size (8 by 11).
+    div.printing-box
+      h3 Posters
+      p.printing-desc
+        | I have a Canon wide-format printer that can go up to 13x17".
+      .printing-img-container
+        img.printing-img src='/public/poster.png'
 
-      li
-        p
-          b Patches
-        p This basically involves cutting a stencil and then putting two layers of white fabric paint on black canvas material. 
+    div.printing-box
+      h3 Resin 3D Printing
+      p.printing-desc
+        | I have an Elecoo Saturn 2 Resin Printer.
+      .printing-img-container
+        img.printing-img src='/public/resin.jpg'
 
-    h3 prices
-
-    ul
-      li Sticker and stencil orders have a $10 setup fee, and then cost $3 per 8 x 11 sheet.
-      li Posters are $4 each with no setup fee, unless you want me to do upscaling / cleanup first, which will be $10
-      li Patches involves first ordering a stencil sheet and then an additional $3 per patch
-
-      
+    div.printing-box
+      h3 FDM 3D Printing
+      p.printing-desc
+        | I have an Elegoo Neptune 4 Plus FDM Printer.
+      .printing-img-container
+        img.printing-img src='/public/fdm.png'

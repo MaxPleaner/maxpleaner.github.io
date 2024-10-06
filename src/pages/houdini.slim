@@ -1,0 +1,338 @@
+doctype html
+html lang="en"
+  head
+    == partial("./src/shared/head.slim", current_page: nil)
+  body
+    == partial("./src/shared/nav.slim", current_page: 'houdini')
+
+    h1 Houdini Tools
+
+    markdown:
+      _Note: also see my [youtube channel](https://www.youtube.com/@dissonantprotean5495) which has some Houdini tutorials_
+
+      _If you want to learn the ropes of Houdini, send me a message and I'd be happy to tutor._
+
+    hr style='margin: 30px 0'
+
+    markdown:
+      You can download my Houdini package which includes HDAs and toolbars for easy access.
+
+      [https://dissonant.info/utils/houdini_package/](https://dissonant.info/utils/houdini_package/)
+
+      All the following assets are included there.
+  
+    .houdini-box
+      .title Image Loader
+      .houdini-text
+        .desc style='font-size: 0.9em' Loads an image into SOPs (one prim per pixel) with the correct aspect ratio and scalable resolution
+      .houdini-img-wrapper
+        img src='public/houdini/image-loader.png'
+
+    .houdini-box
+      .title Connect Adjacent Points
+      .houdini-text
+        .desc style='font-size: 0.9em' Draws random lines between points with configurable distance and density
+      .houdini-img-wrapper
+        img src='public/houdini/connect-adjacent.png'
+
+    .houdini-box
+      .title Path Deform Example
+      .houdini-text
+        .desc style='font-size: 0.9em' Shows how you can emulate Illustrator's pattern brush
+      .houdini-img-wrapper
+        img src='public/houdini/path_deform_example.png'
+
+    .houdini-box
+      .title Uniform Grid
+      .houdini-text
+        .desc style='font-size: 0.9em' Utility to create a grid where each cell is a uniform square size
+      .houdini-img-wrapper
+        img src='public/houdini/uniform_grid.png'
+
+    .houdini-box
+      .title Text Extrude Example
+      .houdini-text
+        .desc style='font-size: 0.9em' An example of how to create concentric rings around text
+      .houdini-img-wrapper
+        img src='public/houdini/text_extrude_2d_example.png'
+
+    .houdini-box
+      .title Perfect Cube Bounds
+      .houdini-text
+        .desc style='font-size: 0.9em' Gives you the smallest perfect cube which encompasses an object
+      .houdini-img-wrapper
+        img src='public/houdini/perfect_cube_bounds.png'
+
+    .houdini-box
+      .title Box Voxelize
+      .houdini-text
+        .desc style='font-size: 0.9em' Voxelizes a mesh into cubes with configurable resolution
+      .houdini-img-wrapper
+        img src='public/houdini/box_voxelize.png'
+
+    .houdini-box
+      .title Bowl Generator
+      .houdini-text
+        .desc style='font-size: 0.9em' Generates a bowl shape with a configurable height ramp
+      .houdini-img-wrapper
+        img src='public/houdini/bowl_generator.png'
+
+    .houdini-box
+      .title Extrude Curve to Ground
+      .houdini-text
+        .desc style='font-size: 0.9em' Extrudes a curve to fill in the space between it and the ground
+      .houdini-img-wrapper
+        img src='public/houdini/extrude_curve_to_ground.png'
+
+    .houdini-box
+      .title Split by Geometry
+      .houdini-text
+        .desc style='font-size: 0.9em' Splits a mesh into pieces defined by another mesh
+      .houdini-img-wrapper
+        img src='public/houdini/split_by_geometry.png'
+
+    .houdini-box
+      .title models-resource.com Downloader
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span Downloads & imports retro game assets from models-resource.com 
+          a href="https://youtu.be/N4lg8wORTCg?si=c0sEvNrNUBd021ev" (Guide)
+      .houdini-img-wrapper
+        img src='public/houdini/models-resource.png'
+
+    .houdini-box
+      .title Asset Library Layout
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span Imports all assets in a folder and lays them out in a grid 
+          a href="https://youtu.be/nKA_zELIcLg?si=N_3iftpn7J37z6W-" (Guide)
+      .houdini-img-wrapper
+        img src='public/houdini/asset-library.png'
+
+    .houdini-box
+      .title Autorig
+      .houdini-text
+        .desc style='font-size: 0.9em' A simple auto rigger for KineFX
+      .houdini-img-wrapper
+        img src='public/houdini/autorig.png'
+
+    .houdini-box
+      .title Obj Importer Materials Fix
+      .houdini-text
+        .desc style='font-size: 0.9em' A patched version of the built in Obj importer which correctly loads materials
+      .houdini-img-wrapper
+        img src='public/houdini/obj_importer_materials_fix.png'
+
+    .houdini-box
+      .title Attribute from Map with Alpha
+      .houdini-text
+        .desc style='font-size: 0.9em' A patched version of the built in Attribute from Map SOP which loads the Alpha channel, not just RGB
+      .houdini-img-wrapper
+        img src='public/houdini/attribute_from_map_alpha.png'
+
+    .houdini-box
+      .title Split Volume / Merge Volume
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span Split a vec4 volume into separate R/G/B/A float volumes (and merge back afterward). 
+          span This is needed in order to manipulate RGBA images with Python, for example.
+          a href='https://youtu.be/M3KA7Gul9LU?si=TtkdtlvrrqYxcXpx&t=1169' (Guide)
+      .houdini-img-wrapper
+        img src='public/houdini/split_volume.png'
+
+    .houdini-box
+      .title Alpha to Color (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em' Simple utility which sets color to black or white based on alpha
+      .houdini-img-wrapper
+        img src='public/houdini/alpha_to_color.png'
+
+    .houdini-box
+      .title Color to Alpha (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span A primitive Chromakey that sets alpha based on luminance threshold.
+      .houdini-img-wrapper
+        img src='public/houdini/alpha_from_color.png'
+
+    .houdini-box
+      .title Delete Color (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Sets color and alpha to 0 at pixels within a configurable threshold of similarity to a particular color.
+      .houdini-img-wrapper
+        img src='public/houdini/delete_color.png'
+
+    .houdini-box
+      .title Random Dither (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Multiplies color by black or white probabilistically, based on luminance.
+      .houdini-img-wrapper
+        img src='public/houdini/random_dither.png'
+
+    .houdini-box
+      .title Color Pixel (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span Simple utility which adds a marker at a particular UV location, with a particular size. 
+          span Useful if you want to target an effect to a specific location and need to find the coordinate.
+      .houdini-img-wrapper
+        img src='public/houdini/color_pixel.png'
+
+    .houdini-box
+      .title Mono Threshold (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span Converts a color image to black and white based on a luminance threshold.
+      .houdini-img-wrapper
+        img src='public/houdini/mono_threshold.png'
+
+
+    .houdini-box
+      .title Quantize to Palette (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span Changes colors to their closest match in a palette.
+      .houdini-img-wrapper
+        img src='public/houdini/quantize_to_palette.png'
+
+    .houdini-box
+      .title Color Mix Composite (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Finds the average / maximum / sum of two images's colors at the places where they both have positive Alpha.
+            |  Inspired by Risograph printing.
+      .houdini-img-wrapper
+        img src='public/houdini/color_mix_composite.png'
+
+    .houdini-box
+      .title Python Processor (Copernicus)
+      .houdini-text
+        .desc style='font-size: 0.7em'
+          span
+            | A minimal framework for processing images with Python. Processes all pixels in a single thread, so you don't have
+            |  the same shader-style limitations as OpenCL or Vex. This makes it useful for integrating AI tools or for certain
+            |  algorithms like pixel sorting 
+            a href="https://youtu.be/M3KA7Gul9LU?si=o66c4ILPdikwg1x1&t=1168" (guide)
+      .houdini-img-wrapper
+        img src='public/houdini/python_cop.png'
+
+    .houdini-box
+      .title SDF Growth
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | A solver-based SDF growth algorithm that can make some pretty cool organic-looking effects 
+            a href="https://www.youtube.com/watch?v=z_ITp4kebKM" (guide)
+      .houdini-img-wrapper
+        img src='public/houdini/sdf_growth.png' 
+
+    .houdini-box
+      .title Sub Scene
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | An obj level subnet that lets you turn on/off a group of lights with a single click.
+      .houdini-img-wrapper
+        img src='public/houdini/subscene.png' 
+
+    .houdini-box
+      .title Press Buttons
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | A simple utility to automatically press some buttons in sequence.
+      .houdini-img-wrapper
+        img src='public/houdini/press_buttons.png' 
+
+    .houdini-box
+      .title Concentric Circles
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Parameterized concentric circles creator with optional sin distortion. Whoa, dude.
+      .houdini-img-wrapper
+        img src='public/houdini/concentric_circles.png' 
+
+    .houdini-box
+      .title SVG Export
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | A modified version of Entagma's SVG exporter SOP. See my tutorial on 
+            a href='https://www.youtube.com/watch?v=VJCSX4mJols' creating a font in Houdini
+      .houdini-img-wrapper
+        img src='public/houdini/svg_export.png' 
+
+    .houdini-box
+      .title Draw Text
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Grows curves in sequence (built to emulate handwriting)  
+            a href='https://www.youtube.com/watch?v=83Gibdi2LXQ' (guide) 
+      .houdini-img-wrapper
+        img src='public/houdini/draw_text.png' 
+
+    .houdini-box
+      .title Combine Textures
+      .houdini-text
+        .desc style='font-size: 0.8em'
+          span
+            | Combines multiple textures into a single atlas texture, and updates UVs accordingly. 
+            | Useful for when you download a model that has multiple material assignments 
+            | and you would prefer it be one material. 
+            a href='https://www.youtube.com/watch?v=rwjTzptCGrw' (guide) 
+      .houdini-img-wrapper
+        img src='public/houdini/combine_textures.png' 
+
+    .houdini-box
+      .title Mask from Raycast
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Masks the points on a geometry which are visible from some other geometry. 
+            | Not technically difficult, but just something I always forget how to do.
+      .houdini-img-wrapper
+        img src='public/houdini/mask_from_raycast.png' 
+
+    .houdini-box
+      .title Spiral around Curve
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Makes a spiral around a curve. I used this for physically simulated curly hair.
+      .houdini-img-wrapper
+        img src='public/houdini/spiral_around_curve.png' 
+
+    .houdini-box
+      .title Sacred Geometry Grid
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Makes this particular triangular grid which is a building block for "sacred geometry" patterns.
+      .houdini-img-wrapper
+        img src='public/houdini/sacred_geometry_grid.png' 
+
+    .houdini-box
+      .title Poly from Points
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Given some unsorted points, attempts to build a non-intersecting polygon by connecting each point to its closest neighbor. 
+            | Useful e.g. for creating randomly generated shapes.
+      .houdini-img-wrapper
+        img src='public/houdini/poly_from_points.png' 
+
+    .houdini-box
+      .title Split Curve Prims
+      .houdini-text
+        .desc style='font-size: 0.9em'
+          span
+            | Splits each segment of a (possibly intersecting) curve into its own primitive 
+      .houdini-img-wrapper
+        img src='public/houdini/split_curve_prims.png' 

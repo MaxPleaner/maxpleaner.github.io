@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Max Pleaner</title>
+    <script crossorigin="anonymous" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+      .hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      
+      @font-face {
+        font-family: Cutive;
+        src: url(/public/CutiveRegular-4LJl.ttf);
+      }
+      @font-face {
+        font-family: Topaz;
+        src: url(/public/Topaz8-xxO8.ttf);
+      }
+      html {
+        padding-bottom: 100px;
+      }
+      
+      body {
+        font-family: Cutive, sans-serif;
+        color: white;
+        background-color: black;
+        margin: 50px;
+      }
+      
+      nav {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        max-width: 900px;
+      }
+      
+      .nav-item {
+        outline: 1px solid white;
+        padding: 5px 10px;
+        display: inline-block;
+        margin: 6px 4px;
+      }
+      
+      .nav-item.root-link {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+      
+      a, a:visited {
+        color: lightblue;
+        font-size: 0.9em;
+      }
+      
+      a.unstyled, a.unstyled:visited {
+        text-decoration: none;
+      }
+      
+      .nav-item.active {
+        outline: 2px solid lightgreen;
+      }
+      
+      a:hover {
+        color: lightgreen;
+        font-size: 0.9em;
+      }
+      
+      #software strong {
+        color: lightblue;
+        font-weight: normal;
+      }
+      
+      .linkbox, .houdini-box {
+        width: 400px;
+        height: 490px;
+        outline: 1px solid white;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+        display: inline-block;
+        float: left;
+        text-decoration: none;
+      }
+      .linkbox img, .houdini-box img {
+        max-width: 350px;
+        max-height: 350px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .linkbox .linkbox-text, .linkbox .houdini-text, .houdini-box .linkbox-text, .houdini-box .houdini-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 130px;
+      }
+      .linkbox .linkbox-text .title, .linkbox .houdini-text .title, .houdini-box .linkbox-text .title, .houdini-box .houdini-text .title {
+        display: block;
+        font-size: 1.5em;
+      }
+      .linkbox .linkbox-text .desc, .linkbox .houdini-text .desc, .houdini-box .linkbox-text .desc, .houdini-box .houdini-text .desc {
+        display: block;
+      }
+      .linkbox .img-wrapper, .linkbox .houdini-img-wrapper, .houdini-box .img-wrapper, .houdini-box .houdini-img-wrapper {
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .houdini-box {
+        width: 320px;
+        height: 420px;
+      }
+      .houdini-box .title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      
+      .houdini-text {
+        height: 100px !important;
+        font-size: 0.9em;
+        display: block !important;
+      }
+      
+      .houdini-img-wrapper {
+        width: 300px !important;
+        height: 250px !important;
+      }
+      .houdini-img-wrapper img {
+        max-width: 300px;
+        max-height: 250px;
+        display: block;
+      }
+      
+      .band-box, .asset-box, .printing-box {
+        max-width: 600px;
+        height: 600px;
+        outline: 1px solid white;
+        margin: 20px;
+        padding: 10px;
+        display: inline-block;
+        float: left;
+      }
+      
+      .asset-box {
+        height: 700px !important;
+      }
+      
+      .band-img, .asset-img {
+        max-height: 400px;
+        max-width: 600px;
+        display: block;
+      }
+      
+      .printing-box {
+        width: 350px;
+        height: 450px;
+        margin: 10px;
+      }
+      
+      .printing-desc {
+        height: 100px;
+      }
+      
+      .printing-img-container {
+        width: 350px;
+        height: 260px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .printing-img {
+        max-width: 350px;
+        max-height: 260px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-item root-link">
+        <a class="unstyled" href="/">Max Pleaner</a>
+      </div>
+      <br />
+      <div class="nav-item">
+        <a href="/websites.html">my websites</a>
+      </div>
+      <div class="nav-item">
+        <a href="/music.html">music</a>
+      </div>
+      <div class="nav-item active">
+        <a href="/gallery.html">gallery</a>
+      </div>
+      <div class="nav-item">
+        <a href="/houdini.html">houdini tools</a>
+      </div>
+      <div class="nav-item">
+        <a href="/touch-designer.html">touch designer tools</a>
+      </div>
+      <div class="nav-item">
+        <a href="/printing.html">printing</a>
+      </div>
+      <div class="nav-item">
+        <a href="/software.html">software</a>
+      </div>
+      <div class="nav-item">
+        <a href="/writings.html">tech blog</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.etsy.com/shop/RecursiveSelf" target="_blank">etsy store</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.youtube.com/@dissonantprotean5495/videos" target="_blank">youtube channel</a>
+      </div>
+      <div class="nav-item">
+        <a href="/socials.html">socials / contact</a>
+      </div>
+    </nav>
+    <hr style="margin: 30px 0px" />
+    <h1>
+      Gallery
+    </h1>
+    <b>nothing here yet :)</b>
+  </body>
+</html>

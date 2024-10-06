@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Sticker Layout</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Noto+Sans">
+
+    <style>
+      #instructions {
+        width: 100vh;
+        height: 800px;
+      }
+      body {
+        background-color: black;
+        color: white;
+        font-family: 'Noto Sans', sans-serif;
+        padding-left: 10px;
+        padding-top: 10px;
+      }
+      a, a:visited {
+        color: lightgreen;
+      }
+      a:hover {
+        color: orange;
+      }
+      pre {
+        outline: 1px solid white;
+        background-color: black;
+        color: white;
+        display: inline-block;
+        padding: 10px;
+      }
+      #editor input {
+        width: 50px;
+      }
+      header h1 {
+        margin: 0px;
+      }
+      header {
+        display: inline-block;
+      }
+      .instruction {
+        max-width: 1000px;
+      }
+      .underline {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor">
+      <header>
+        <h1>Sticker Layout</h1>
+        <p>
+          <span><a href="https://dissonant.info">dissonant.info</a></span>
+          <span><a href="https://github.com/MaxPleaner/maxpleaner.github.io/blob/master/src/pages/sticker_layout.html">Check out the code</a></span>
+        </p>
+      </header>
+
+      <h2 class='underline'>Instructions</h2>
+      <p class='instruction'><i>Each line should contain comma separated values count, name, url</i></p>
+      <p><pre>
+5, hamster, https://media.tenor.com/vLEZ2KX_AIEAAAAM/hampton-hamster.gif
+5, coffeescript, https://cdn.iconscout.com/icon/free/png-256/coffee-script-3629290-3031874.png
+      </pre></p>
+      <p class='instruction'><i>They can optionally also include width(cm) and height(cm) values. These will override the default sticker size. If height is omitted, it will be auto-calculated based on the width. In the first line below, the icon is adjusted to have a width of 6 cm, with the height auto-calculated. In the second line, the image is stretched to become 2x4 inches.</i></p>
+      <p><pre>
+30, hamster, https://media.tenor.com/vLEZ2KX_AIEAAAAM/hampton-hamster.gif, 2
+30, coffeescript, https://cdn.iconscout.com/icon/free/png-256/coffee-script-3629290-3031874.png, 6
+      </pre></p>
+
+      <input type='number' id="page-width" value="8.5" step="0.1">
+      <label for="#page-width">page width (inch)</label>
+      <br>
+      <input type='number' id="page-height" value="11" step="0.1">
+      <label for="#page-height">page height (inch)</label>
+      <br>
+      <input type='number' id="icon-size" value="0.6" step="0.01">
+      <label for="#icon-size">default sticker size (cm)</label>
+      <br>
+      <input type='number' id="icon-padding-horizontal" value="0.05" step="0.01">
+      <label for="#icon-padding-horizontal">sticker horizontal padding (cm)</label>
+      <br>
+      <input type='number' id="icon-padding-vertical" value="0.05" step="0.01">
+      <label for="#icon-padding-vertical">sticker vertical padding (cm)</label>
+      <br>
+      <input type='number' id="num-side-by-side" value="1" step="1">
+      <label for="#num-side-by-side">Num pages side-by-side</label>
+      <br>
+      <input type='number' id="side-by-side-gap" value="0.5" step="0.1">
+      <label for="#side-by-side-gap">Gap between side-by-side pages (inches)</label>
+      <br>
+      <br />
+      <br />
+
+      <button id="submit">submit</button>
+      <br />
+      <br />
+      <textarea id="instructions">
+30, hamster, https://media.tenor.com/vLEZ2KX_AIEAAAAM/hampton-hamster.gif, 2
+30, coffeescript, https://cdn.iconscout.com/icon/free/png-256/coffee-script-3629290-3031874.png, 2, 4
+      </textarea>
+    </div>
+    <div class="results">
+    </div>
+
+  <script>
+    $(function() {
+
+      /////////////////////////////////////////////
+      // This code applies to the "viewer" page. //
+      /////////////////////////////////////////////
+
+      hasConfigObj = location.search.split("?data=")[1]
+      if (hasConfigObj) {
+        $("body").css("background-color", "white").css("padding", "0px")
+        queryParams = new URLSearchParams(new URL(location.href).search);
+        data = JSON.parse(queryParams.get("data").slice(0, -1))
+        $("#editor").hide()
+        $results = $(".results")
+        $results
+          .css("outline", "1px solid black")
+          .css("width", `${data.config.pageWidth}in`)
+          .css("height", `${data.config.pageHeight}in`)
+
+        data.instructions.forEach(([count, name, url, width, height]) => {
+          for (let i = 0; i < count; i++) {
+            $img = $("<img>").attr("src", url)
+            $img.css("width", `${width || data.config.iconSize}cm`)
+            if (height) { $img.css("height", `${height}cm`) }
+            $img.css("margin-right", `${data.config.iconPaddingHorizontal / 2}cm`)
+            $img.css("margin-left", `${data.config.iconPaddingHorizontal / 2}cm`)
+            $img.css("margin-top", `${data.config.iconPaddingVertical / 2}cm`)
+            $img.css("margin-bottom", `${data.config.iconPaddingVertical / 2}cm`)
+            $results.append($img)
+          }
+        })
+
+        numSideBySide = data.config.numSideBySide
+        var clone
+        if (numSideBySide > 1) {
+          $results.css("display", "inline-block")
+          for (i = 1; i < numSideBySide; i++) {
+            clone = (clone || $results).clone()
+            // clone = $results.clone()
+            clone.css("margin-left", `${data.config.sideBySideGap}in`)
+            console.log(i)
+            $("body").append(clone)
+          }
+        }
+
+        $("html,body").css("margin", "0px")
+      }
+
+      /////////////////////////////////////////////
+      // This code applies to the "config" page. //
+      /////////////////////////////////////////////
+
+      $("#submit").on("click", () => {
+        data = {}
+        data["config"] = {
+          "pageWidth": parseFloat($("#page-width").val()),
+          "pageHeight": parseFloat($("#page-height").val()),
+          "iconSize": parseFloat($("#icon-size").val()),
+          "iconPaddingHorizontal": parseFloat($("#icon-padding-horizontal").val()),
+          "iconPaddingVertical": parseFloat($("#icon-padding-vertical").val()),
+          "numSideBySide": parseFloat($("#num-side-by-side").val()),
+          "sideBySideGap": parseFloat($("#side-by-side-gap").val())
+        }
+
+        instructionsRaw = $("#instructions").val()
+        data["instructions"] = instructionsRaw.split("\n").map((line) => {
+          return line.split(",").map((part) => part.trim())
+        }).filter((x) => x.length >= 3).map(([count, name, url, width, height]) => {
+          return [
+            parseInt(count),
+            name,
+            url,
+            parseFloat(width) || null,
+            parseFloat(height) || null
+          ]
+        })
+       
+        debugger
+
+        paramsStr = new URLSearchParams(JSON.stringify(data)).toString();
+        search = `data=${paramsStr}`
+        newPath = location.href + `?${search}`
+        window.open(newPath, "_blank")
+      })
+    })
+  </script>
+  </body>
+</html>

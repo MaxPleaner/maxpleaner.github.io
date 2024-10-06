@@ -1,392 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Max Pleaner</title><!--Google Fonts-->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&amp;display=swap" rel="stylesheet" />
+    <title>Max Pleaner</title>
     <script crossorigin="anonymous" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <link rel="stylesheet" href="/public/tooltipster/tooltipster.bundle.min.css"
-    <link href="/public/tooltipster/tooltipster-sideTip-noir.min.css" rel="stylesheet" />
-    <script src="/public/tooltipster/tooltipster.bundle.min.js"></script>
-    <link href="/public/tooltipster/tooltipster-follower.min.css" rel="stylesheet" />
-    <script src="/public/tooltipster/tooltipster-follower.min.js"></script>
-    <style type="text/css">
-      body, html {
-        width: 100%;
+    <style>
+      .hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      
+      @font-face {
+        font-family: Cutive;
+        src: url(/public/CutiveRegular-4LJl.ttf);
+      }
+      @font-face {
+        font-family: Topaz;
+        src: url(/public/Topaz8-xxO8.ttf);
+      }
+      html {
+        padding-bottom: 100px;
       }
       
       body {
-        background-color: black;
+        font-family: Cutive, sans-serif;
         color: white;
-        font-family: 'Roboto Condensed', sans-serif;
+        background-color: black;
+        margin: 50px;
       }
       
-      img.bg-white {
-        background-color: white;
-      }
-      
-      .nav {
-        margin: 10px;
-        display: inline-block;
-      }
-      
-      .nav-link {
-        font-style: italic;
-        display: inline-block;
-      }
-      
-      .nav-link a, .nav-link a:visited {
-        color: lightgreen;
-        text-decoration: none;
-        display: inline-block;
-        padding-right: 10px;
-      }
-      
-      .nav-link a:hover {
-        outline: 2px solid white;
-      }
-      
-      .section-title {
-        margin-left: 20px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 24px;
-        font-style: italic;
-        text-decoration: underline;
-      }
-      
-      .section-title.margin-top-none {
-        margin-top: 0px;
-      }
-      
-      .social-links {
-        display: block;
-        margin-left: 10px;
-      }
-      
-      .social-link {
-        display: inline-block;
-        margin-left: 10px;
-      }
-      
-      .social-link img, .band-link img {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-      }
-      
-      .social-link img:hover, .band-link img:hover {
-        outline: 2px solid lightgreen;
-      }
-      
-      .music-links .title {
-        font-size: 20px;
-        margin-top: 10px;
-      }
-      
-      .music-links ul {
-        margin-top: 0px;
-        padding: none;
-      }
-      
-      .band-title {
-        display: inline-block;
-        font-size: 20px;
-      }
-      
-      .band-link {
-        display: inline-block;
-        position: relative;
-        top: 18px;
-      }
-      
-      .website-links {
-        margin-left: 20px;
-      }
-      
-      .website-links .website-link {
-        max-width: 93%;
-        margin-right: 10px;
-        display: inline-block;
-        outline: 1px solid white;
-      }
-      
-      .website-links .website-link.hover-red:hover {
-        outline: 2px solid red;
-      }
-      
-      .website-links .website-link:hover {
-        outline: 2px solid white;
-      }
-      
-      @media (max-width: 700px) {
-        .website-links .website-link {
-          display: block;
-        }
-        .website-links .website-link:not(:last-child) {
-          margin-bottom: 20px;
-        }
-      }
-      
-      .website-links .website-link a, .website-links .website-link a:visited {
-        display: inline-block;
-        font-size: 28px;
-        padding: 10px;
-        color: lightgreen;
-        text-decoration: none;
-      }
-      
-      .skill-sections {
-        display: inline-block;
-        margin-left: 20px;
-        max-width: 89%;
-      }
-      
-      .skill-section {
-        outline: 1px solid white;
-        padding: 10px;
+      nav {
+        font-size: 1.2em;
         margin-bottom: 20px;
+        max-width: 900px;
       }
       
-      .skill-section header {
-        font-size: 28px;
+      .nav-item {
+        outline: 1px solid white;
+        padding: 5px 10px;
+        display: inline-block;
+        margin: 6px 4px;
+      }
+      
+      .nav-item.root-link {
+        font-size: 1.5em;
         margin-bottom: 10px;
       }
       
-      .skill-section-logo {
-        margin-right: 10px;
-        display: inline-block;
-        margin-bottom: 5px;
+      a, a:visited {
+        color: lightblue;
+        font-size: 0.9em;
       }
       
-      .skill-section-logo img {
-        border-radius: 10px;
-        width: 50px;
-        height: 50px;
+      a.unstyled, a.unstyled:visited {
+        text-decoration: none;
+      }
+      
+      .nav-item.active {
+        outline: 2px solid lightgreen;
+      }
+      
+      a:hover {
+        color: lightgreen;
+        font-size: 0.9em;
+      }
+      
+      #software strong {
+        color: lightblue;
+        font-weight: normal;
+      }
+      
+      .linkbox, .houdini-box {
+        width: 400px;
+        height: 490px;
+        outline: 1px solid white;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+        display: inline-block;
+        float: left;
+        text-decoration: none;
+      }
+      .linkbox img, .houdini-box img {
+        max-width: 350px;
+        max-height: 350px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .linkbox .linkbox-text, .linkbox .houdini-text, .houdini-box .linkbox-text, .houdini-box .houdini-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 130px;
+      }
+      .linkbox .linkbox-text .title, .linkbox .houdini-text .title, .houdini-box .linkbox-text .title, .houdini-box .houdini-text .title {
+        display: block;
+        font-size: 1.5em;
+      }
+      .linkbox .linkbox-text .desc, .linkbox .houdini-text .desc, .houdini-box .linkbox-text .desc, .houdini-box .houdini-text .desc {
+        display: block;
+      }
+      .linkbox .img-wrapper, .linkbox .houdini-img-wrapper, .houdini-box .img-wrapper, .houdini-box .houdini-img-wrapper {
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .houdini-box {
+        width: 320px;
+        height: 420px;
+      }
+      .houdini-box .title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      
+      .houdini-text {
+        height: 100px !important;
+        font-size: 0.9em;
+        display: block !important;
+      }
+      
+      .houdini-img-wrapper {
+        width: 300px !important;
+        height: 250px !important;
+      }
+      .houdini-img-wrapper img {
+        max-width: 300px;
+        max-height: 250px;
+        display: block;
+      }
+      
+      .band-box, .asset-box, .printing-box {
+        max-width: 600px;
+        height: 600px;
+        outline: 1px solid white;
+        margin: 20px;
+        padding: 10px;
+        display: inline-block;
+        float: left;
+      }
+      
+      .asset-box {
+        height: 700px !important;
+      }
+      
+      .band-img, .asset-img {
+        max-height: 400px;
+        max-width: 600px;
+        display: block;
+      }
+      
+      .printing-box {
+        width: 350px;
+        height: 450px;
+        margin: 10px;
+      }
+      
+      .printing-desc {
+        height: 100px;
+      }
+      
+      .printing-img-container {
+        width: 350px;
+        height: 260px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .printing-img {
+        max-width: 350px;
+        max-height: 260px;
+        display: block;
       }
     </style>
   </head>
   <body>
-    <div class="nav">
-      <h1>
-        <span>> </span>
-        <div class="nav-link">
-          Max Pleaner
-        </div>
-      </h1>
-    </div>
-    <div class="section">
-      <div class="section-title margin-top-none">
-        Social Links
+    <nav>
+      <div class="nav-item root-link active">
+        <a class="unstyled" href="/">Max Pleaner</a>
       </div>
-      <div class="social-links">
-        <div class="social-link">
-          <a class="tooltip" href="mailto:maxpleaner@gmail.com?subject=Contact from dissonant.info" title="Email me"><img class="bg-white" src="/public/logos/gmail.png" /></a>
-        </div>
-        <div class="social-link">
-          <a class="tooltip" href="https://linkedin.in/maxpleaner" title="LinkedIn"><img src="/public/logos/linkedin.png" /></a>
-        </div>
-        <div class="social-link">
-          <a class="tooltip" href="https://www.instagram.com/macskamz/" title="Instagram"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
-        </div>
-        <div class="social-link">
-          <a class="tooltip" href="https://www.youtube.com/channel/UCavlhcY0RxmNLN4MYDYML2g" title="Youtube"><img class="bg-white" src="/public/logos/youtube.png" /></a>
-        </div>
-        <div class="social-link">
-          <a class="tooltip" href="https://www.artstation.com/dissonant_protean" title="Artstation"><img class="bg-white" src="/public/logos/artstation.jpeg" /></a>
-        </div>
-        <div class="social-link">
-          <a class="tooltip" href="https://github.com/maxpleaner" title="Github"><img class="bg-white" src="/public/logos/github.png" /></a>
-        </div>
-        <div class="social-link">
-          <a class="tooltip" href="https://stackoverflow.com/users/2981429/max-pleaner" title="Stack Overflow"><img class="bg-white" src="/public/logos/stackoverflow.png" /></a>
-        </div>
+      <br />
+      <div class="nav-item">
+        <a href="/websites.html">my websites</a>
       </div>
-    </div>
-    <div class="section">
-      <div class="section-title">
-        My Other Websites
+      <div class="nav-item">
+        <a href="/music.html">music</a>
       </div>
-      <div class="website-links">
-        <div class="website-link">
-          <a class="tooltip" href="https://dissonant.info/maxpleaner/files" title="My public files">Files</a>
-        </div>
-        <div class="website-link">
-          <a class="tooltip" href="https://bayareashows.org" title="Auto-scraped Bay Area concert listings">Bay Area Shows</a>
-        </div>
-        <div class="website-link hover-red">
-          <a class="tooltip" href="https://dissonant.info/films" title="Stream my movie collection (ask me for access)">Video Streamer</a>
-        </div>
+      <div class="nav-item hidden">
+        <a href="/gallery.html">gallery</a>
       </div>
-    </div>
-    <div class="section">
-      <div class="section-title">
-        Skills
+      <div class="nav-item">
+        <a href="/houdini.html">houdini tools</a>
       </div>
-      <div class="skill-sections">
-        <div class="skill-section">
-          <header>
-            Code
-          </header>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/ruby.png" title="Ruby" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/rails.png" title="Rails" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/javascript.png" title="Javascript" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/node.png" title="Node" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/react.png" title="React" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/python.png" title="Python" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/csharp.png" title="C#" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/golang.png" title="Golang" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/sql.png" title="SQL" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/redis.png" title="Redis" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/influx.png" title="Influx DB" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/aws.png" title="AWS" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/gcp.png" title="GCP" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/linux.png" title="Linux" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/nginx.svg" title="Nginx" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/selenium.png" title="Selenium" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/websockets.png" title="Websockets" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/arduino.jpeg" title="Arduino" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/pi.png" title="Raspberry Pi" />
-          </div>
-        </div>
-        <div class="skill-section">
-          <header>
-            Digital Art & 3D
-          </header>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/houdini.png" title="Houdini" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/touchdesigner.png" title="Touch Designer" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/photoshop.jpeg" title="Photoshop" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip" src="/public/logos/zbrush.png" title="Zbrush" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/unreal.svg" title="Unreal" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/unity.png" title="Unity" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/sketchup.png" title="Sketchup" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/blender.png" title="Blender" />
-          </div>
-        </div>
-        <div class="skill-section">
-          <header>
-            Music
-          </header>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/rack.png" title="VCV Rack" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/ableton.jpeg" title="Ableton" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/drums.png" title="The Drums" />
-          </div>
-          <div class="skill-section-logo">
-            <img class="tooltip bg-white" src="/public/logos/audacity.png" title="Audacity" />
-          </div>
-          <div class="music-links">
-            <div class="title">
-              My Bands / Projects
-            </div>
-            <ul>
-              <li>
-                <div class="band-title">
-                  Half Rotten Goddess (Epic Melodic Punk, Current)
-                </div>
-                <div class="band-link">
-                  <a class="tooltip" href="https://www.instagram.com/halfrottengoddess/" title="Instagram"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
-                </div>
-                <div class="band-link">
-                  <a class="tooltip" href="https://www.facebook.com/HalfRottenGoddess" title="Facebook"><img class="bg-white" src="/public/logos/facebook.webp" /></a>
-                </div>
-              </li>
-              <li>
-                <div class="band-title">
-                  War of Knives (Metal, Current)
-                </div>
-                <div class="band-link">
-                  <a class="tooltip" href="https://warofknives.bandcamp.com/album/demo" title="Bandcamp"><img class="bg-white" src="/public/logos/bandcamp.png" /></a>
-                </div>
-                <div class="band-link">
-                  <a class="tooltip" href="https://www.instagram.com/warofknives" title="Instagram"><img class="bg-white" src="/public/logos/instagram.webp" /></a>
-                </div>
-                <div class="band-link">
-                  <a class="tooltip" href="https://www.facebook.com/warofknives" title="Facebook"><img class="bg-white" src="/public/logos/facebook.webp" /></a>
-                </div>
-              </li>
-              <li>
-                <div class="band-title">
-                  Dissonant Protean (Solo Experimental Electronic)
-                </div>
-                <div class="band-link">
-                  <a class="tooltip" href="https://dissonant-protean.bandcamp.com/" title="Bandcamp"><img class="bg-white" src="/public/logos/bandcamp.png" /></a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="nav-item">
+        <a href="/touch-designer.html">touch designer tools</a>
       </div>
-    </div>
+      <div class="nav-item">
+        <a href="/printing.html">printing</a>
+      </div>
+      <div class="nav-item">
+        <a href="/software.html">software</a>
+      </div>
+      <div class="nav-item">
+        <a href="/writings.html">tech blog</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.etsy.com/shop/RecursiveSelf" target="_blank">etsy store</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.youtube.com/@dissonantprotean5495/videos" target="_blank">youtube channel</a>
+      </div>
+      <div class="nav-item">
+        <a href="/socials.html">socials / contact</a>
+      </div>
+    </nav>
+    <hr style="margin: 30px 0px" />
+    <p>
+      Greetings. I am musician, programmer, 3D generalist, digital artist, and DIY crafter based in Oakland, California.
+    </p>
+    <p style="max-width: 600px">
+      <img src="public/selfies/drum_pic.jpeg" style="height: 500px; display: block; margin-left: auto; margin-right: auto" />
+    </p>
   </body>
 </html>
-<script>
-  $(function(){
-    $(".tooltip").tooltipster({
-      animationDuration: 0,
-      delay: 0,
-      theme: 'tooltipster-noir',
-      plugins: ['follower'],
-      offset: [5,-5],
-    })
-  })
-</script>

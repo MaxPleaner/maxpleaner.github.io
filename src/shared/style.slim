@@ -1,107 +1,156 @@
 sass:
-  body, html
-    width: 100%
+  .hidden
+    display: none !important
+    visibility: hidden !important
+
+  @font-face
+    font-family: Cutive
+    src: url(/public/CutiveRegular-4LJl.ttf)
+
+  @font-face
+    font-family: Topaz
+    src: url(/public/Topaz8-xxO8.ttf)
+
+  html
+    padding-bottom: 100px
+
   body
-    background-color: black
+    font-family: Cutive, sans-serif
     color: white
-    font-family: 'Roboto Condensed', sans-serif
+    background-color: black
+    margin: 50px
 
-  img.bg-white
-    background-color: white
+  nav
+    font-size: 1.2em
+    margin-bottom: 20px
+    max-width: 900px
 
+  .nav-item
+    outline: 1px solid white
+    padding: 5px 10px
+    display: inline-block
+    margin: 6px 4px
+  
+  .nav-item.root-link
+    // outline: none
+    font-size: 1.5em
+    margin-bottom: 10px
 
-  .nav
+  a, a:visited
+    color: lightblue
+    font-size: 0.9em
+
+  a.unstyled, a.unstyled:visited
+    // color: white
+    text-decoration: none
+
+  .nav-item.active
+    outline: 2px solid lightgreen
+
+  a:hover
+    color: lightgreen
+    font-size: 0.9em
+
+  #software strong
+    color: lightblue
+    font-weight: normal
+
+  .linkbox, .houdini-box
+    width: 400px
+    height: 490px
+    outline: 1px solid white
     margin: 10px
+    padding: 5px
+    text-align: center
     display: inline-block
-  .nav-link
-    font-style: italic
-    display: inline-block
-    a, a:visited
-      color: lighten(lightgreen, 0%)
-      text-decoration: none
-      display: inline-block
-      padding-right: 10px
-    a:hover
-      outline: 2px solid white
+    float: left
+    text-decoration: none
 
-  .section-title
-    margin-left: 20px
-    margin-top: 30px
-    margin-bottom: 30px
-    font-size: 24px
-    font-style: italic
-    text-decoration: underline
-    &.margin-top-none
-      margin-top: 0px
+    img
+      max-width: 350px
+      max-height: 350px
+      display: block
+      margin-left: auto
+      margin-right: auto
 
-  .social-links
-    display: block
-    margin-left: 10px
-  .social-link
-    display: inline-block
-    margin-left: 10px
-  .social-link img, .band-link img
-    width: 50px
-    height: 50px
-    border-radius: 10px
-    &:hover
-      outline: 2px solid lightgreen
+    .linkbox-text, .houdini-text
+      display: flex
+      flex-direction: column
+      justify-content: center
+      height: 130px
 
-  .music-links
-    .title
-      font-size: 20px
-      margin-top: 10px
-    ul
-      margin-top: 0px
-      padding: none
-  .band-title
-    display: inline-block
-    font-size: 20px
-  .band-link
-    display: inline-block
-    position: relative
-    top: 18px
+      .title
+        display: block
+        font-size: 1.5em
 
-  .website-links
-    margin-left: 20px
-    .website-link
-      max-width: 93%
-      margin-right: 10px
-      margin-bottom: 15px
-      &.hover-red:hover
-        outline: 2px solid red
-      &:hover
-        outline: 2px solid white
-      display: inline-block
-      @media (max-width: 700px)
-        &:not(:last-child)
-          margin-bottom: 20px
+      .desc
         display: block
 
-      outline: 1px solid white
-      a, a:visited
-        display: inline-block
-        font-size: 28px
-        padding: 10px
-        color: lighten(lightgreen, 0%)
-        text-decoration: none
+    .img-wrapper, .houdini-img-wrapper
+      width: 350px
+      height: 350px
+      margin: 0 auto
+      display: flex
+      align-items: center
+      justify-content: center
 
-  .skill-sections
-    display: inline-block
-    margin-left: 20px
-    max-width: 89%
-  .skill-section
-    outline: 1px solid white
-    padding: 10px
-    margin-bottom: 20px
-    header
-      font-size: 28px
+  .houdini-box
+    width: 320px
+    height: 420px
+
+    .title
+      font-size: 1.2em
       margin-bottom: 10px
-  .skill-section-logo
-    margin-right: 10px
-    display: inline-block
-    margin-bottom: 5px
+
+  .houdini-text
+    height: 100px !important
+    font-size: 0.9em
+    display: block !important
+
+  .houdini-img-wrapper
+    width: 300px !important
+    height: 250px !important
+
     img
-      border-radius: 10px
-      width: 50px
-      height: 50px
+      max-width: 300px
+      max-height: 250px
+      display: block
+
+  .band-box, .asset-box, .printing-box
+    max-width: 600px
+    height: 600px
+    outline: 1px solid white
+    margin: 20px
+    padding: 10px
+    display: inline-block
+    float: left
+
+  .asset-box
+    height: 700px !important
+
+  .band-img, .asset-img
+    max-height: 400px
+    max-width: 600px
+    display: block
+
+  .printing-box
+    width: 350px
+    height: 450px
+    margin: 10px
+    // outline: none
+
+  .printing-desc
+    height: 100px
+
+  .printing-img-container
+    width: 350px
+    height: 260px
+    margin: 0 auto
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .printing-img
+    max-width: 350px
+    max-height: 260px
+    display: block

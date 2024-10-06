@@ -1,0 +1,36 @@
+doctype html
+html lang="en"
+  head
+    == partial("./src/shared/head.slim", current_page: nil)
+  body
+    == partial("./src/shared/nav.slim", current_page: 'touch-desiger')
+
+    h1 Touch Designer Tools
+
+    markdown:
+      _also see my [youtube channel](https://www.youtube.com/@dissonantprotean5495) which has some Touch Designer tutorials_
+
+    div.asset-box
+      h3 Movie Sampler
+      p
+        | A movie player with scrub controls, looping, and the ability to extract clips.
+      ul
+        li
+          a href='https://olib.amb-service.net/component/movie-sampler' Download
+        li
+          a href='https://www.youtube.com/watch?v=QFNUbYyJX7I' Guide
+
+      img.asset-img src='/public/movie-sampler.png'
+
+    div.asset-box
+      h3 Video Composition System
+      p
+        | A flexible system for playing video clips in sequence or randomly, and swapping between effects.
+        |  Driven by a desire to have a more directed approach to sequencing in TD (like in Premiere).
+      ul
+        li
+          a href='https://olib.amb-service.net/component/skamz-video-composition-system' Download
+        li
+          a href='https://youtube.com/watch?v=xliF1k6nc3U' Guide
+
+      img.asset-img src='/public/video-composition.png'

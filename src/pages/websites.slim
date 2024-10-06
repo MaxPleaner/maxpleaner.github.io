@@ -1,0 +1,64 @@
+doctype html
+html lang="en"
+  head
+    == partial("./src/shared/head.slim", current_page: nil)
+  body
+    == partial("./src/shared/nav.slim", current_page: 'websites')
+
+    a.linkbox href='https://bayareashows.org'
+      .img-wrapper
+        img src='public/websites/bay-area-shows.png'
+      .linkbox-text
+        .title Bay Area Shows 
+        .desc I wrote over 40 webscrapers to make this daily concert listing website.
+
+    a.linkbox href='https://shader-web.dissonant.info/'
+      .img-wrapper
+        img src='public/websites/shader-web.png'
+      .linkbox-text
+        .title Shader-Web 
+        .desc A sandbox for writing camera effects in GLSL
+
+    a.linkbox href='https://maxpleaner.com/sticker_layout.html'
+      .img-wrapper
+        img src='public/websites/sticker-layout.png'
+      .linkbox-text
+        .title Sticker Layout
+        .desc A handy utility for laying out images in a printable grid with configurable sizes and margins.
+
+    a.linkbox href='https://spotify-explorer.dissonant.info/'
+      .img-wrapper
+        img src='public/websites/spotify-explorer.png'
+      .linkbox-text
+        .title Spotify-Explorer
+        .desc
+        | A resource for music nerds; all the obscure genres you could wish for.
+        |  I scraped Spotify for all the "Sound of" playlists and listed them here.
+
+    a.linkbox href='https://dissonant.info/films'
+      .img-wrapper
+        img src='public/websites/video-streamer.png'
+      .linkbox-text
+        .title Video Streamer
+        .desc
+        | I basically wrote my own version of Plex / Jellyfin before I realized those things existed.
+        |  Stream my movie collection in the browser.
+        |  Ask me for access.
+
+    a.linkbox href='https://jellyfin.dissonant.info'
+      .img-wrapper
+        img src='public/websites/jellyfin.png'
+      .linkbox-text
+        .title Jellyfin
+        .desc
+        | Essentially the same thing as Video Streamer but with fancier UI, mkv streaming, and it works on smart TVs.
+        |  Ask me for access.
+
+    a.linkbox href='https://maxpleaner.github.io/p5_playground'
+      .img-wrapper
+        img src='public/websites/p5-playground.png'
+      .linkbox-text
+        .title P5 Playground
+        .desc
+        | Some experiments with browser-based generative art using the p5.js library.
+

@@ -1,0 +1,14 @@
+doctype html
+html lang="en"
+  head
+    == partial("./src/shared/head.slim", current_page: nil)
+  body
+    == partial("./src/shared/nav.slim", current_page: 'writings')
+
+    markdown:
+
+      # Tech Blog
+
+      - ## [Using ChatGPT in the Terminal](https://wiki.dissonant.info/pages/tech-blog/chat-gpt-terminal.html)
+      - ## [Self Hosting on a Raspberry Pi](https://wiki.dissonant.info/pages/tech-blog/self-hosting-on-a-raspberry-pi.html)
+      - ## [Launching Mac OS 9 / Sheepshaver games in Launchbox / Bigbox](https://wiki.dissonant.info/pages/tech-blog/sheepshaver-launchbox.html)

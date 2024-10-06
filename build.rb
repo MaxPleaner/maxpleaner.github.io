@@ -7,8 +7,10 @@ class SiteBuilder
 
   # Main entry point. Compiles src/ to dest/
   def self.run
-    FileUtils.rm_rf("./dist/.", secure: true)
-    FileUtils.mkdir_p("./dist/public")
+    if ENV["FORCE"] == "true"
+      FileUtils.rm_rf("./dist/.", secure: true)
+      FileUtils.mkdir_p("./dist/public")
+    end
 
     ["./src/pages", "./src/public"].each do |dir_prefix|
       Dir.glob("#{dir_prefix}/**/*").each do |src|
@@ -18,8 +20,10 @@ class SiteBuilder
         else
           if dest.end_with?(".slim")
             dest.gsub!(".slim", ".html")
+            puts "rendering slim: #{src}"
             render_slim(src, dest)
           else
+            puts "copying file: #{src}"
             FileUtils.copy(src, dest)
           end
         end
@@ -40,7 +44,7 @@ class SiteBuilder
     private
 
     # Internal method which populates PartialData, calls the block, then empties PartialData
-    # This script is single-threaded so using a global works fine. 
+    # This script is single-threaded so using a global works fine.
     def set_partial_data(**data, &blk)
       PartialData.merge!(data)
       result = blk.call

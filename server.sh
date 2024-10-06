@@ -1,1 +1,1 @@
-python -m http.server -d dist/
+python3 -m http.server -d dist/

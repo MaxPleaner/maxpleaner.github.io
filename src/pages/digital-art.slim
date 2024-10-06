@@ -1,0 +1,17 @@
+doctype html
+html lang="en"
+  head
+    == partial("./src/shared/head.slim", current_page: nil) 
+  body
+    == partial("./src/shared/nav.slim", current_page: 'digital-art')
+
+  ul
+    li
+      h2
+        a href='digital-art/gallery.html' Gallery
+    li
+      h2
+        a href='digital-art/houdini.html' Houdini tools 
+    li
+      h2
+        a href='digital-art/touch-designer.html' Touch Designer tools
