@@ -1,236 +1,305 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Max Pleaner</title><!--Google Fonts-->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&amp;display=swap" rel="stylesheet" />
+    <title>Max Pleaner</title>
     <script crossorigin="anonymous" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <link rel="stylesheet" href="/public/tooltipster/tooltipster.bundle.min.css"
-    <link href="/public/tooltipster/tooltipster-sideTip-noir.min.css" rel="stylesheet" />
-    <script src="/public/tooltipster/tooltipster.bundle.min.js"></script>
-    <link href="/public/tooltipster/tooltipster-follower.min.css" rel="stylesheet" />
-    <script src="/public/tooltipster/tooltipster-follower.min.js"></script>
     <style>
-      body, html {
-        width: 100%;
+      .hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      
+      @font-face {
+        font-family: Cutive;
+        src: url(/public/CutiveRegular-4LJl.ttf);
+      }
+      @font-face {
+        font-family: Topaz;
+        src: url(/public/Topaz8-xxO8.ttf);
+      }
+      html {
+        padding-bottom: 100px;
       }
       
       body {
-        background-color: black;
+        font-family: Cutive, sans-serif;
         color: white;
-        font-family: "Roboto Condensed", sans-serif;
+        background-color: black;
+        margin: 50px;
       }
       
-      img.bg-white {
-        background-color: white;
-      }
-      
-      .nav {
-        margin: 10px;
-        display: inline-block;
-      }
-      
-      .nav-link {
-        font-style: italic;
-        display: inline-block;
-      }
-      .nav-link a, .nav-link a:visited {
-        color: lightgreen;
-        text-decoration: none;
-        display: inline-block;
-        padding-right: 10px;
-      }
-      .nav-link a:hover {
-        outline: 2px solid white;
-      }
-      
-      .section-title {
-        margin-left: 20px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 24px;
-        font-style: italic;
-        text-decoration: underline;
-      }
-      .section-title.margin-top-none {
-        margin-top: 0px;
-      }
-      
-      .social-links {
-        display: block;
-        margin-left: 10px;
-      }
-      
-      .social-link {
-        display: inline-block;
-        margin-left: 10px;
-      }
-      
-      .social-link img, .band-link img {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-      }
-      .social-link img:hover, .band-link img:hover {
-        outline: 2px solid lightgreen;
-      }
-      
-      .music-links .title {
-        font-size: 20px;
-        margin-top: 10px;
-      }
-      .music-links ul {
-        margin-top: 0px;
-        padding: none;
-      }
-      
-      .band-title {
-        display: inline-block;
-        font-size: 20px;
-      }
-      
-      .band-link {
-        display: inline-block;
-        position: relative;
-        top: 18px;
-      }
-      
-      .website-links {
-        margin-left: 20px;
-      }
-      .website-links .website-link {
-        max-width: 93%;
-        margin-right: 10px;
-        margin-bottom: 15px;
-        display: inline-block;
-        outline: 1px solid white;
-      }
-      .website-links .website-link.hover-red:hover {
-        outline: 2px solid red;
-      }
-      .website-links .website-link:hover {
-        outline: 2px solid white;
-      }
-      @media (max-width: 700px) {
-        .website-links .website-link {
-          display: block;
-        }
-        .website-links .website-link:not(:last-child) {
-          margin-bottom: 20px;
-        }
-      }
-      .website-links .website-link a, .website-links .website-link a:visited {
-        display: inline-block;
-        font-size: 28px;
-        padding: 10px;
-        color: lightgreen;
-        text-decoration: none;
-      }
-      
-      .skill-sections {
-        display: inline-block;
-        margin-left: 20px;
-        max-width: 89%;
-      }
-      
-      .skill-section {
-        outline: 1px solid white;
-        padding: 10px;
+      nav {
+        font-size: 1.2em;
         margin-bottom: 20px;
+        max-width: 900px;
       }
-      .skill-section header {
-        font-size: 28px;
+      
+      .nav-item {
+        outline: 1px solid white;
+        padding: 5px 10px;
+        display: inline-block;
+        margin: 6px 4px;
+      }
+      
+      .nav-item.root-link {
+        font-size: 1.5em;
         margin-bottom: 10px;
       }
       
-      .skill-section-logo {
-        margin-right: 10px;
+      a, a:visited {
+        color: lightblue;
+        font-size: 0.9em;
+      }
+      
+      a.unstyled, a.unstyled:visited {
+        text-decoration: none;
+      }
+      
+      .nav-item.active {
+        outline: 2px solid lightgreen;
+      }
+      
+      a:hover {
+        color: lightgreen;
+        font-size: 0.9em;
+      }
+      
+      #software strong {
+        color: lightblue;
+        font-weight: normal;
+      }
+      
+      .linkbox, .houdini-box {
+        width: 400px;
+        height: 490px;
+        outline: 1px solid white;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
         display: inline-block;
-        margin-bottom: 5px;
+        float: left;
+        text-decoration: none;
       }
-      .skill-section-logo img {
-        border-radius: 10px;
-        width: 50px;
-        height: 50px;
+      .linkbox img, .houdini-box img {
+        max-width: 350px;
+        max-height: 350px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
-    </style>
-    <style>
-      h3 {
-        text-decoration: underline;
+      .linkbox .linkbox-text, .linkbox .houdini-text, .houdini-box .linkbox-text, .houdini-box .houdini-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 130px;
+      }
+      .linkbox .linkbox-text .title, .linkbox .houdini-text .title, .houdini-box .linkbox-text .title, .houdini-box .houdini-text .title {
+        display: block;
+        font-size: 1.5em;
+      }
+      .linkbox .linkbox-text .desc, .linkbox .houdini-text .desc, .houdini-box .linkbox-text .desc, .houdini-box .houdini-text .desc {
+        display: block;
+      }
+      .linkbox .img-wrapper, .linkbox .houdini-img-wrapper, .houdini-box .img-wrapper, .houdini-box .houdini-img-wrapper {
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .houdini-box {
+        width: 320px;
+        height: 420px;
+      }
+      .houdini-box .title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      
+      .houdini-text {
+        height: 100px !important;
+        font-size: 0.9em;
+        display: block !important;
+      }
+      
+      .houdini-img-wrapper {
+        width: 300px !important;
+        height: 250px !important;
+      }
+      .houdini-img-wrapper img {
+        max-width: 300px;
+        max-height: 250px;
+        display: block;
+      }
+      
+      .band-box, .asset-box, .printing-box {
+        max-width: 600px;
+        height: 600px;
+        outline: 1px solid white;
+        margin: 20px;
+        padding: 10px;
+        display: inline-block;
+        float: left;
+      }
+      
+      .asset-box {
+        height: 400px !important;
+        width: 450px !important;
+        font-size: 0.9em;
+        margin: 5px;
+      }
+      
+      .band-img, .asset-img {
+        max-height: 400px;
+        max-width: 600px;
+        display: block;
+      }
+      
+      .asset-img {
+        max-height: 280px !important;
+        max-width: 440px !important;
+      }
+      
+      .printing-box {
+        width: 350px;
+        height: 450px;
+        margin: 10px;
+      }
+      
+      .printing-desc {
+        height: 100px;
+      }
+      
+      .printing-img-container {
+        width: 350px;
+        height: 260px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .printing-img {
+        max-width: 350px;
+        max-height: 260px;
+        display: block;
       }
     </style>
   </head>
-  <body style="padding: 20px; max-width: 80vw">
-    <h2>
-      Skam Stix short run printing services
-    </h2>
-    <h3>
-      contact
-    </h3>
+  <body>
+    <nav>
+      <div class="nav-item root-link">
+        <a class="unstyled" href="/">Max Pleaner</a>
+      </div>
+      <br />
+      <div class="nav-item">
+        <a href="/websites.html">my websites</a>
+      </div>
+      <div class="nav-item">
+        <a href="/music.html">music</a>
+      </div>
+      <div class="nav-item hidden">
+        <a href="/gallery.html">gallery</a>
+      </div>
+      <div class="nav-item">
+        <a href="/houdini.html">houdini tools</a>
+      </div>
+      <div class="nav-item">
+        <a href="/touch-designer.html">touch designer tools</a>
+      </div>
+      <div class="nav-item active">
+        <a href="/printing.html">printing</a>
+      </div>
+      <div class="nav-item">
+        <a href="/software.html">software</a>
+      </div>
+      <div class="nav-item">
+        <a href="/writings.html">tech blog</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.etsy.com/shop/RecursiveSelf" target="_blank">etsy store</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.youtube.com/@dissonantprotean5495/videos" target="_blank">youtube channel</a>
+      </div>
+      <div class="nav-item">
+        <a href="/socials.html">socials / contact</a>
+      </div>
+    </nav>
+    <hr style="margin: 30px 0px" />
+    <h1>
+      Printing
+    </h1>
     <p>
-      send a message on instagram @macskamz or text me at 415 706 0904
-      local pickup in oakland, or i can mail stuff (posters will be expensive to mail though).
+      <i>Low-volume orders available at low-cost. Message me on Instagram if interested.</i>
     </p>
-    <h3>
-      services
-    </h3>
-    <ul>
-      <li>
-        <p>
-          <b>Stickers    </b>
-        </p>
-        <p>
-          I will print and die-cut however many stickers you can fit onto a standard 8x11 sheet.
-          You can include multiple designs on the same sheet.
-          If you have photoshop you can send me a .png export. The background should be transparent.
-          Pick matte or glossy water-resistant paper (I think glossy looks better, but it's your call)
-        </p>
-      </li>
-      <li>
-        <p>
-          <b>Posters</b>
-        </p>
-        <p>
-          I can print posters up to 13x17 size. I can cut to smaller size if you prefer. Make sure your image has adequate size and resolution.
-          I can do some tricks to upscale it otherwise. 
-        </p>
-      </li>
-      <li>
-        <p>
-          <b>Stencils</b>
-        </p>
-        <p>
-          I cut stencils on transparency film, which is not the most sturdy stuff in the world but is reusable.
-          They can have some pretty fine detail but with stencils you have to be aware that you cannot have holes,
-          e.g. many letters such as a/e/o/d/b/p/g will require you to use a custom font which is designed for stencils.
-          Standard letter paper size (8 by 11).
-        </p>
-      </li>
-      <li>
-        <p>
-          <b>Patches</b>
-        </p>
-        <p>
-          This basically involves cutting a stencil and then putting two layers of white fabric paint on black canvas material. 
-        </p>
-      </li>
-    </ul>
-    <h3>
-      prices
-    </h3>
-    <ul>
-      <li>
-        Sticker and stencil orders have a $10 setup fee, and then cost $3 per 8 x 11 sheet.
-      </li>
-      <li>
-        Posters are $4 each with no setup fee, unless you want me to do upscaling / cleanup first, which will be $10
-      </li>
-      <li>
-        Patches involves first ordering a stencil sheet and then an additional $3 per patch
-      </li>
-    </ul>
+    <div class="printing-box">
+      <h3>
+        Stickers
+      </h3>
+      <p class="printing-desc">
+        I print laminated, die cut stickers using an Injket, glossy sticker paper, and a Silhouette Portrait 3.
+      </p>
+      <div class="printing-img-container">
+        <img class="printing-img" src="/public/stickers.png" />
+      </div>
+    </div>
+    <div class="printing-box">
+      <h3>
+        Stencils
+      </h3>
+      <p class="printing-desc">
+        Stencils are made on letter size transparency sheets (fairly durable and reusable) using the Silhouette Portrait 3 die cutter.
+      </p>
+      <div class="printing-img-container">
+        <img class="printing-img" src="/public/stencils.png" />
+      </div>
+    </div>
+    <div class="printing-box">
+      <h3>
+        Screen Printing
+      </h3>
+      <p class="printing-desc">
+        I stretch my own screens and can print images up to 13x17" poster size.
+      </p>
+      <div class="printing-img-container">
+        <img class="printing-img" src="/public/screenprint.png" />
+      </div>
+    </div>
+    <div class="printing-box">
+      <h3>
+        Posters
+      </h3>
+      <p class="printing-desc">
+        I have a Canon wide-format printer that can go up to 13x17".
+      </p>
+      <div class="printing-img-container">
+        <img class="printing-img" src="/public/poster.png" />
+      </div>
+    </div>
+    <div class="printing-box">
+      <h3>
+        Resin 3D Printing
+      </h3>
+      <p class="printing-desc">
+        I have an Elecoo Saturn 2 Resin Printer.
+      </p>
+      <div class="printing-img-container">
+        <img class="printing-img" src="/public/resin.jpg" />
+      </div>
+    </div>
+    <div class="printing-box">
+      <h3>
+        FDM 3D Printing
+      </h3>
+      <p class="printing-desc">
+        I have an Elegoo Neptune 4 Plus FDM Printer.
+      </p>
+      <div class="printing-img-container">
+        <img class="printing-img" src="/public/fdm.png" />
+      </div>
+    </div>
   </body>
 </html>

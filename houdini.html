@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Max Pleaner</title>
+    <script crossorigin="anonymous" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+      .hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      
+      @font-face {
+        font-family: Cutive;
+        src: url(/public/CutiveRegular-4LJl.ttf);
+      }
+      @font-face {
+        font-family: Topaz;
+        src: url(/public/Topaz8-xxO8.ttf);
+      }
+      html {
+        padding-bottom: 100px;
+      }
+      
+      body {
+        font-family: Cutive, sans-serif;
+        color: white;
+        background-color: black;
+        margin: 50px;
+      }
+      
+      nav {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        max-width: 900px;
+      }
+      
+      .nav-item {
+        outline: 1px solid white;
+        padding: 5px 10px;
+        display: inline-block;
+        margin: 6px 4px;
+      }
+      
+      .nav-item.root-link {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+      
+      a, a:visited {
+        color: lightblue;
+        font-size: 0.9em;
+      }
+      
+      a.unstyled, a.unstyled:visited {
+        text-decoration: none;
+      }
+      
+      .nav-item.active {
+        outline: 2px solid lightgreen;
+      }
+      
+      a:hover {
+        color: lightgreen;
+        font-size: 0.9em;
+      }
+      
+      #software strong {
+        color: lightblue;
+        font-weight: normal;
+      }
+      
+      .linkbox, .houdini-box {
+        width: 400px;
+        height: 490px;
+        outline: 1px solid white;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+        display: inline-block;
+        float: left;
+        text-decoration: none;
+      }
+      .linkbox img, .houdini-box img {
+        max-width: 350px;
+        max-height: 350px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .linkbox .linkbox-text, .linkbox .houdini-text, .houdini-box .linkbox-text, .houdini-box .houdini-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 130px;
+      }
+      .linkbox .linkbox-text .title, .linkbox .houdini-text .title, .houdini-box .linkbox-text .title, .houdini-box .houdini-text .title {
+        display: block;
+        font-size: 1.5em;
+      }
+      .linkbox .linkbox-text .desc, .linkbox .houdini-text .desc, .houdini-box .linkbox-text .desc, .houdini-box .houdini-text .desc {
+        display: block;
+      }
+      .linkbox .img-wrapper, .linkbox .houdini-img-wrapper, .houdini-box .img-wrapper, .houdini-box .houdini-img-wrapper {
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .houdini-box {
+        width: 320px;
+        height: 420px;
+      }
+      .houdini-box .title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      
+      .houdini-text {
+        height: 100px !important;
+        font-size: 0.9em;
+        display: block !important;
+      }
+      
+      .houdini-img-wrapper {
+        width: 300px !important;
+        height: 250px !important;
+      }
+      .houdini-img-wrapper img {
+        max-width: 300px;
+        max-height: 250px;
+        display: block;
+      }
+      
+      .band-box, .asset-box, .printing-box {
+        max-width: 600px;
+        height: 600px;
+        outline: 1px solid white;
+        margin: 20px;
+        padding: 10px;
+        display: inline-block;
+        float: left;
+      }
+      
+      .asset-box {
+        height: 400px !important;
+        width: 450px !important;
+        font-size: 0.9em;
+        margin: 5px;
+      }
+      
+      .band-img, .asset-img {
+        max-height: 400px;
+        max-width: 600px;
+        display: block;
+      }
+      
+      .asset-img {
+        max-height: 280px !important;
+        max-width: 440px !important;
+      }
+      
+      .printing-box {
+        width: 350px;
+        height: 450px;
+        margin: 10px;
+      }
+      
+      .printing-desc {
+        height: 100px;
+      }
+      
+      .printing-img-container {
+        width: 350px;
+        height: 260px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .printing-img {
+        max-width: 350px;
+        max-height: 260px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-item root-link">
+        <a class="unstyled" href="/">Max Pleaner</a>
+      </div>
+      <br />
+      <div class="nav-item">
+        <a href="/websites.html">my websites</a>
+      </div>
+      <div class="nav-item">
+        <a href="/music.html">music</a>
+      </div>
+      <div class="nav-item hidden">
+        <a href="/gallery.html">gallery</a>
+      </div>
+      <div class="nav-item active">
+        <a href="/houdini.html">houdini tools</a>
+      </div>
+      <div class="nav-item">
+        <a href="/touch-designer.html">touch designer tools</a>
+      </div>
+      <div class="nav-item">
+        <a href="/printing.html">printing</a>
+      </div>
+      <div class="nav-item">
+        <a href="/software.html">software</a>
+      </div>
+      <div class="nav-item">
+        <a href="/writings.html">tech blog</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.etsy.com/shop/RecursiveSelf" target="_blank">etsy store</a>
+      </div>
+      <div class="nav-item">
+        <a href="https://www.youtube.com/@dissonantprotean5495/videos" target="_blank">youtube channel</a>
+      </div>
+      <div class="nav-item">
+        <a href="/socials.html">socials / contact</a>
+      </div>
+    </nav>
+    <hr style="margin: 30px 0px" />
+    <h1>
+      Houdini Tools
+    </h1>
+    <p><em>Note: also see my <a
+    href="https://www.youtube.com/@dissonantprotean5495">youtube channel</a>
+    which has some Houdini tutorials</em></p>
+    <p><em>If you want to learn the ropes of Houdini, send me a message and
+    I'd be happy to tutor.</em></p>
+    <hr style="margin: 30px 0" />
+    <p>You can download my Houdini package which includes HDAs and toolbars
+    for easy access.</p>
+    <p><a
+    href="https://utils.dissonant.info/houdini_package/">https://utils.dissonant.info/houdini_package/</a></p>
+    <p>All the following assets are included there.</p>
+    <div class="houdini-box">
+      <div class="title">
+        Image Loader
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Loads an image into SOPs (one prim per pixel) with the correct aspect ratio and scalable resolution
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/image-loader.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Connect Adjacent Points
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Draws random lines between points with configurable distance and density
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/connect-adjacent.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Path Deform Example
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Shows how you can emulate Illustrator's pattern brush
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/path_deform_example.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Uniform Grid
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Utility to create a grid where each cell is a uniform square size
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/uniform_grid.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Text Extrude Example
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          An example of how to create concentric rings around text
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/text_extrude_2d_example.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Perfect Cube Bounds
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Gives you the smallest perfect cube which encompasses an object
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/perfect_cube_bounds.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Box Voxelize
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Voxelizes a mesh into cubes with configurable resolution
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/box_voxelize.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Bowl Generator
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Generates a bowl shape with a configurable height ramp
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/bowl_generator.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Extrude Curve to Ground
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Extrudes a curve to fill in the space between it and the ground
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/extrude_curve_to_ground.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Split by Geometry
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Splits a mesh into pieces defined by another mesh
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/split_by_geometry.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        models-resource.com Downloader
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Downloads & imports retro game assets from models-resource.com </span><a href="https://youtu.be/N4lg8wORTCg?si=c0sEvNrNUBd021ev">(Guide)</a>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/models-resource.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Asset Library Layout
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Imports all assets in a folder and lays them out in a grid </span><a href="https://youtu.be/nKA_zELIcLg?si=N_3iftpn7J37z6W-">(Guide)</a>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/asset-library.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Autorig
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          A simple auto rigger for KineFX
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/autorig.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Obj Importer Materials Fix
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          A patched version of the built in Obj importer which correctly loads materials
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/obj_importer_materials_fix.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Attribute from Map with Alpha
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          A patched version of the built in Attribute from Map SOP which loads the Alpha channel, not just RGB
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/attribute_from_map_alpha.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Split Volume / Merge Volume
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Split a vec4 volume into separate R/G/B/A float volumes (and merge back afterward). </span><span>This is needed in order to manipulate RGBA images with Python, for example.</span><a href="https://youtu.be/M3KA7Gul9LU?si=TtkdtlvrrqYxcXpx&amp;t=1169">(Guide)</a>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/split_volume.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Alpha to Color (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          Simple utility which sets color to black or white based on alpha
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/alpha_to_color.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Color to Alpha (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>A primitive Chromakey that sets alpha based on luminance threshold.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/alpha_from_color.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Delete Color (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Sets color and alpha to 0 at pixels within a configurable threshold of similarity to a particular color.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/delete_color.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Random Dither (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Multiplies color by black or white probabilistically, based on luminance.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/random_dither.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Color Pixel (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Simple utility which adds a marker at a particular UV location, with a particular size. </span><span>Useful if you want to target an effect to a specific location and need to find the coordinate.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/color_pixel.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Mono Threshold (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Converts a color image to black and white based on a luminance threshold.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/mono_threshold.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Quantize to Palette (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Changes colors to their closest match in a palette.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/quantize_to_palette.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Color Mix Composite (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Finds the average / maximum / sum of two images's colors at the places where they both have positive Alpha. Inspired by Risograph printing.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/color_mix_composite.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Python Processor (Copernicus)
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.7em">
+          <span>A minimal framework for processing images with Python. Processes all pixels in a single thread, so you don't have the same shader-style limitations as OpenCL or Vex. This makes it useful for integrating AI tools or for certain algorithms like pixel sorting <a href="https://youtu.be/M3KA7Gul9LU?si=o66c4ILPdikwg1x1&amp;t=1168">(guide)</a></span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/python_cop.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        SDF Growth
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>A solver-based SDF growth algorithm that can make some pretty cool organic-looking effects <a href="https://www.youtube.com/watch?v=z_ITp4kebKM">(guide)</a></span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/sdf_growth.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Sub Scene
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>An obj level subnet that lets you turn on/off a group of lights with a single click.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/subscene.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Press Buttons
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>A simple utility to automatically press some buttons in sequence.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/press_buttons.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Concentric Circles
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Parameterized concentric circles creator with optional sin distortion. Whoa, dude.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/concentric_circles.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        SVG Export
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>A modified version of Entagma's SVG exporter SOP. See my tutorial on <a href="https://www.youtube.com/watch?v=VJCSX4mJols">creating a font in Houdini</a></span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/svg_export.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Draw Text
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Grows curves in sequence (built to emulate handwriting)  <a href="https://www.youtube.com/watch?v=83Gibdi2LXQ">(guide) </a></span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/draw_text.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Combine Textures
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.8em">
+          <span>Combines multiple textures into a single atlas texture, and updates UVs accordingly. Useful for when you download a model that has multiple material assignments and you would prefer it be one material. <a href="https://www.youtube.com/watch?v=rwjTzptCGrw">(guide) </a></span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/combine_textures.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Mask from Raycast
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Masks the points on a geometry which are visible from some other geometry. Not technically difficult, but just something I always forget how to do.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/mask_from_raycast.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Spiral around Curve
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Makes a spiral around a curve. I used this for physically simulated curly hair.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/spiral_around_curve.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Sacred Geometry Grid
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Makes this particular triangular grid which is a building block for "sacred geometry" patterns.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/sacred_geometry_grid.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Poly from Points
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Given some unsorted points, attempts to build a non-intersecting polygon by connecting each point to its closest neighbor. Useful e.g. for creating randomly generated shapes.</span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/poly_from_points.png" />
+      </div>
+    </div>
+    <div class="houdini-box">
+      <div class="title">
+        Split Curve Prims
+      </div>
+      <div class="houdini-text">
+        <div class="desc" style="font-size: 0.9em">
+          <span>Splits each segment of a (possibly intersecting) curve into its own primitive </span>
+        </div>
+      </div>
+      <div class="houdini-img-wrapper">
+        <img src="public/houdini/split_curve_prims.png" />
+      </div>
+    </div>
+  </body>
+</html>
