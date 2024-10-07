@@ -8,29 +8,137 @@ html lang="en"
     h1 Touch Designer Tools
 
     markdown:
-      _also see my [youtube channel](https://www.youtube.com/@dissonantprotean5495) which has some Touch Designer tutorials_
+      You can download my Palette package which includes many assets (some mine, some I've downloaded). 
+
+      [https://utils.dissonant.info/td_package/](https://utils.dissonant.info/td_package/).
+
+      _also see my [youtube channel](https://www.youtube.com/@dissonantprotean5495) which has some Touch Designer tutorials, specifically:_
+
+      - [Intro to feedback in Shadertoy and Touch Designer](https://www.youtube.com/watch?v=QCq0x7-Kt3o)
 
     div.asset-box
       h3 Movie Sampler
       p
-        | A movie player with scrub controls, looping, and the ability to extract clips.
-      ul
-        li
-          a href='https://olib.amb-service.net/component/movie-sampler' Download
-        li
-          a href='https://www.youtube.com/watch?v=QFNUbYyJX7I' Guide
+        | A movie player with scrub controls, looping, and the ability to extract clips. 
+        a href='https://olib.amb-service.net/component/movie-sampler' Download
+        span = "  /  "
+        a href='https://www.youtube.com/watch?v=QFNUbYyJX7I' Guide
+      img.asset-img src='/public/movie-sampler.png' 
 
-      img.asset-img src='/public/movie-sampler.png'
-
-    div.asset-box
+    div.asset-box style="font-size: 0.7em"
       h3 Video Composition System
       p
         | A flexible system for playing video clips in sequence or randomly, and swapping between effects.
-        |  Driven by a desire to have a more directed approach to sequencing in TD (like in Premiere).
-      ul
-        li
-          a href='https://olib.amb-service.net/component/skamz-video-composition-system' Download
-        li
-          a href='https://youtube.com/watch?v=xliF1k6nc3U' Guide
-
+        |  Driven by a desire to have a more directed approach to sequencing in TD (like in Premiere). 
+        a href='https://olib.amb-service.net/component/skamz-video-composition-system' Download
+        span = "  /  "
+        a href='https://youtube.com/watch?v=xliF1k6nc3U' Guide
       img.asset-img src='/public/video-composition.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Shadertoy Importer
+      p
+        | A fork of td-shadertoy which has less boilerplate. Imports single-pass and multi-pass shaders from Shadertoy.
+      img.asset-img src='/public/touch-designer/shadertoy_importer.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Python Processor Example (Pixel Sort)
+      p
+        | An example of reading / writing arbitary pixels with Python.
+      img.asset-img src='/public/touch-designer/pixel_sort.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Simple Dilate (GLSL)
+      p
+        | Dilates in a feedback loop, with adjustable brightness falloff. A fast pseudo-SDF.
+      img.asset-img src='/public/touch-designer/dilate_falloff.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Dilate Falloff (GLSL)
+      p
+        | A GLSL 
+      img.asset-img src='/public/touch-designer/simple_dilate.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Mask under Wave (GLSL)
+      p
+        | Makes a sequence of waves, each with a different color. Optionally animated. 
+      img.asset-img src='/public/touch-designer/mask_under_wave.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Wave Distortion (GLSL)
+      p
+        | An example of how Mask under Wave might be used
+      img.asset-img src='/public/touch-designer/wave_distortion.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 GLSL with Python / DAT / CHOPs
+      p
+        | A convoluted example of how to seed data into a shader using Python -> DATs -> CHOPs
+      img.asset-img loop=true src='/public/touch-designer/GLSL_using_chops.gif'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Recolor (GLSL)
+      p
+        | Recolors an image according to a provided palette. Used in conjunction with Colour Lovers Picker (a free third party utility).
+      img.asset-img loop=true src='/public/touch-designer/recolor.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Edge Feedback
+      p
+        | Feedback + Edge Detect = Fun
+      img.asset-img loop=true src='/public/touch-designer/edge_feedback.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Dither Newsprint (GLSL)
+      p
+        | A lo-fi dithering effect. Converted from ShaderToy; not my original work.
+      img.asset-img loop=true src='/public/touch-designer/dither_newsprint.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Floyd-Steinberg Dither (GLSL)
+      p
+        | A lo-fi dithering effect. Converted from ShaderToy; not my original work.
+      img.asset-img loop=true src='/public/touch-designer/dither_newsprint.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 RGB Offset (GLSL)
+      p
+        | A simple chromatic aberration effect
+      img.asset-img src='/public/touch-designer/chromatic_aberration.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Opaque Black and White (GLSL)
+      p
+        | Changes all colored pixels to white and everything else to black. Sets alpha to 1 everywhere.
+      img.asset-img src='/public/touch-designer/opaque_black_and_white.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Mask from Alpha (GLSL)
+      p
+        | Simple utility which sets color to white where alpha is greater than 0, and sets color to black otherwise.
+      img.asset-img src='/public/touch-designer/mask_from_alpha.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Mask Color (GLSL)
+      p
+        | Primitive Chromakey, converts selected color to black / transparent with an adjustable similarity threshold
+      img.asset-img src='/public/touch-designer/mask_color.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Hard Step (GLSL)
+      p
+        | Simple utility which sets color to white if its luminance is greater than a threshold, and black otherwise.
+      img.asset-img src='/public/touch-designer/hard_step.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Copy Alpha (GLSL)
+      p
+        | Simple utility which copies alpha from one image to another. Sets color to black where alpha is greater than 0.
+      img.asset-img src='/public/touch-designer/copy_alpha.png'
+
+    div.asset-box style="font-size: 0.9em"
+      h3 Flip Flop CHOP
+      p
+        | Flip-flips between -1 and 1 whenever the input passes some threshold. Can optionally throttle input to prevent rapid flipping.
+      img.asset-img src='/public/touch-designer/flip_flop.png'
