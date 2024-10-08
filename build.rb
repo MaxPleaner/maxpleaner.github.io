@@ -6,7 +6,38 @@ class SiteBuilder
   PartialData = {}
 
   # Main entry point. Compiles src/ to dest/
-  def self.run
+  def self.run(changed_file=nil)
+    if changed_file
+      build_file(changed_file)
+    else
+      rebuild_all
+    end
+    puts "~~~ BUILT SITE ~~~"
+  end
+
+  def self.build_file(src)
+    files = [src]
+    if src.include?("/shared/")
+      files = Dir.glob("src/pages/**/*")
+    end
+    files.each do |file|
+      dest = file.gsub("src/", "dist/").gsub("/pages/", "/")
+      if File.directory?(file)
+        FileUtils.mkdir_p(dest)
+      else
+        if dest.end_with?(".slim")
+          dest.gsub!(".slim", ".html")
+          puts "rendering slim: #{file}"
+          render_slim(file, dest)
+        else
+          puts "copying: #{file}"
+          FileUtils.copy(file, dest)
+        end
+      end
+    end
+  end
+
+  def self.rebuild_all
     if ENV["FORCE"] == "true"
       FileUtils.rm_rf("./dist/.", secure: true)
       FileUtils.mkdir_p("./dist/public")
@@ -14,23 +45,9 @@ class SiteBuilder
 
     ["./src/pages", "./src/public"].each do |dir_prefix|
       Dir.glob("#{dir_prefix}/**/*").each do |src|
-        dest = src.gsub("/src/", "/dist/").gsub("/pages/", "/")
-        if File.directory?(src)
-          FileUtils.mkdir_p(dest)
-        else
-          if dest.end_with?(".slim")
-            dest.gsub!(".slim", ".html")
-            puts "rendering slim: #{src}"
-            render_slim(src, dest)
-          else
-            puts "copying file: #{src}"
-            FileUtils.copy(src, dest)
-          end
-        end
+        build_file(src)
       end
     end
-
-    puts "~~~ BUILT SITE ~~~"
   end
 
   # Call this from a view to render another sub view. Second argument is optional partial data e.g. { foo: "bar" }
@@ -63,5 +80,5 @@ class SiteBuilder
 end
 
 if __FILE__ == $0
-  SiteBuilder.run
+  SiteBuilder.run(ARGV[0])
 end

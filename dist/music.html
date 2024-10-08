@@ -9,6 +9,11 @@
         visibility: hidden !important;
       }
       
+      .hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      
       @font-face {
         font-family: Cutive;
         src: url(/public/CutiveRegular-4LJl.ttf);
@@ -151,6 +156,24 @@
         margin: 5px;
       }
       
+      .gallery-box {
+        outline: 1px solid white;
+        display: inline-block;
+        margin: 5px;
+        padding: 0px;
+        width: 300px;
+        float: left;
+        height: 350px;
+      }
+      .gallery-box p {
+        padding: 3px;
+        font-size: 0.6em;
+      }
+      .gallery-box img, .gallery-box video {
+        max-height: 310px !important;
+        max-width: 300px !important;
+      }
+      
       .band-img, .asset-img {
         max-height: 400px;
         max-width: 600px;
@@ -160,6 +183,33 @@
       .asset-img {
         max-height: 280px !important;
         max-width: 440px !important;
+      }
+      
+      .gallery-box img:hover {
+        cursor: pointer;
+      }
+      
+      .printing-box {
+        width: 350px;
+        height: 450px;
+        margin: 10px;
+      }
+      
+      .printing-desc {
+        height: 100px;
+      }
+      
+      .printing-img-container {
+        width: 350px;
+        height: 260px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .gallery-box img:hover {
+        cursor: pointer;
       }
       
       .printing-box {
@@ -186,6 +236,16 @@
         max-height: 260px;
         display: block;
       }
+      
+      .printing-img {
+        max-width: 350px;
+        max-height: 260px;
+        display: block;
+      }
+      
+      .clearfix {
+        clear: both;
+      }
     </style>
   </head>
   <body>
@@ -200,7 +260,13 @@
       <div class="nav-item active">
         <a href="/music.html">music</a>
       </div>
-      <div class="nav-item hidden">
+      <div class="nav-item">
+        <a href="/software.html">software</a>
+      </div>
+      <div class="nav-item">
+        <a href="/printing.html">printing</a>
+      </div>
+      <div class="nav-item">
         <a href="/gallery.html">gallery</a>
       </div>
       <div class="nav-item">
@@ -208,12 +274,6 @@
       </div>
       <div class="nav-item">
         <a href="/touch-designer.html">touch designer tools</a>
-      </div>
-      <div class="nav-item">
-        <a href="/printing.html">printing</a>
-      </div>
-      <div class="nav-item">
-        <a href="/software.html">software</a>
       </div>
       <div class="nav-item">
         <a href="/writings.html">tech blog</a>

@@ -1,10 +1,193 @@
 doctype html
 html lang="en"
-  head
+  head 
     == partial("./src/shared/head.slim", current_page: nil)
+    script src='/public/img_box.js'
   body
     == partial("./src/shared/nav.slim", current_page: 'gallery')
 
-    h1 Gallery
+    h1 Gallery - click for full size 
 
-    b Will add stuff here soon
+    hr
+
+    ////////////////////////////////////
+    / 2D ART
+    ////////////////////////////////////
+    / .2d
+    /   .clearfix
+    /   h2 2D Art
+
+    ////////////////////////////////////
+    / IRL
+    ////////////////////////////////////
+    .irl
+      .clearfix
+      h2 Painting & Drawing
+
+    ////////////////////////////////////
+    / STICKERS
+    ////////////////////////////////////
+    .stickers
+      .clearfix
+      h2 Stickers and Posters
+
+      .gallery-box
+        p Half Rotten Goddess "Pregnant" sticker
+        img src='public/gallery/HRG_PREGNART.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Half Rotten Goddess "Piss" sticker
+        img src='public/gallery/Screenshot 2023-03-21 004003.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Half Rotten Goddess "Animals Fucking" sticker
+        img src='public/gallery/postcard_v2_front.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Assnife sticker
+        img src='public/gallery/assnife.png' onclick='img_box(this)'
+
+
+      .gallery-box
+        p Half Rotten Goddess "Black Metal" sticker
+        img src='public/gallery/hrg_black_metal_x8.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Half Rotten Goddess "graffiti" sticker
+        img src='public/gallery/logo2.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Half Rotten Goddess poster
+        img src='public/gallery/final1.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Half Rotten Goddess "90s" logo
+        img src='public/gallery/hrg.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Half Rotten Goddess "Concentric" sticker
+        img src='public/gallery/hrg_concentric.png' onclick='img_box(this)'
+
+      .gallery-box
+        p "Unreadable band name" sticker
+        img src='public/gallery/gorenoise.png' onclick='img_box(this)'
+
+      .gallery-box
+        p "Limitations Imposed By Technology" sticker
+        img src='public/gallery/limits_imposed7.png' onclick='img_box(this)'
+
+
+
+    ////////////////////////////////////
+    / Other 2d
+    ////////////////////////////////////
+    .stickers
+      .clearfix
+      h2 Other 2D and text art
+
+      .gallery-box
+        p Randomly generated glyphs
+        img src='public/gallery/glyphs_mosaic.jpg' onclick='img_box(this)'
+
+      .gallery-box
+        p Procedural text effects
+        img src='public/gallery/dissonism.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Procedural text outline effects
+        img src='public/gallery/text_art2.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Organic Concentric Growth
+        img src='public/gallery/concentric.png' onclick='img_box(this)'
+
+      .gallery-box
+        p "Orange you glad I didn't say Banana"
+        img src='public/gallery/orange.png' onclick='img_box(this)'
+
+      .gallery-box
+        p "Spectrum Distortion"
+        img src='public/gallery/spectrum_distortion2.jpg' onclick='img_box(this)'
+
+      .gallery-box
+        p Fake Risograph
+        img src='public/gallery/riso-insta.png' onclick='img_box(this)'
+
+      .gallery-box
+        p "Spider accident"
+        img src='public/gallery/spider_accident2.png' onclick='img_box(this)'
+
+      .gallery-box
+        p Expanding Lines
+        img src='public/gallery/Expanding_Lines.gif' autoplay='true' loop='true' onclick='img_box(this)'
+
+      .gallery-box
+        p wavy_circle.mp4
+        img autoplay='true' loop='true' src='public/gallery/wavy_circle.gif' onclick='img_box(this)'
+
+
+    ////////////////////////////////////
+    / 3D RENDERS
+    ////////////////////////////////////
+    .3d
+      .clearfix
+      h2 3D Renders (Game Engine or standalone)
+
+      .gallery-box
+        p Foggy Mountain
+        img src='public/gallery/Nov-30-2020 11-23-16.gif' autoplay='true' loop='true' onclick='img_box(this)'
+      .gallery-box
+        p Fox Parallax
+        img autoplay='true' loop='true' src='public/gallery/fox_parallax.gif' onclick='img_box(this)'
+      .gallery-box
+        p Tired Man
+        img src='public/gallery/close_dark.png' onclick='img_box(this)'
+      .gallery-box
+        p Tired Man 2
+        img src='public/gallery/close_spotlight.png' onclick='img_box(this)'
+      .gallery-box
+        p Playground
+        img src='public/gallery/forest-yard.png' onclick='img_box(this)'
+      .gallery-box
+        p Dark Forest
+        img src='public/gallery/forest.png' onclick='img_box(this)'
+      .gallery-box
+        p Glass Cube
+        img src='public/gallery/moving_cube.gif' loop='true' onclick='img_box(this)'
+      .gallery-box.hidden
+        p Ant on Water
+        img src='public/gallery/ant_on_water.png' onclick='img_box(this)'
+      .gallery-box
+        p Wireframe Khazix
+        img src='public/gallery/kha2.png' onclick='img_box(this)'
+      .gallery-box
+        p Trippy Tentacles
+        img src='public/gallery/trippy_tentacles.jpg' onclick='img_box(this)'
+      .gallery-box
+        p Ice Cave
+        img src='public/gallery/unknown.png' onclick='img_box(this)'
+
+    ////////////////////////////////////
+    / OTHER
+    ////////////////////////////////////
+    .other
+      .clearfix
+      h2 Other
+
+      .gallery-box
+        p Creep
+        img src='public/gallery/creep.png' onclick='img_box(this)'
+
+    ////////////////////////////////////
+    / AI
+    ////////////////////////////////////
+    .ai
+      .clearfix
+      h2 AI Stuff
+
+      .gallery-box
+        p Do androids dream of electric sheep? (Dall-e)
+        img src='/public/gallery/ai_manipulated.png' onclick='img_box(this)'
+      .gallery-box
+        p Do androids dream of electric sheep? 2 (Dall-e) 
+        img src='/public/gallery/ai_manipulated2.png' onclick='img_box(this)'
