@@ -9,6 +9,11 @@
         visibility: hidden !important;
       }
       
+      .hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      
       @font-face {
         font-family: Cutive;
         src: url(/public/CutiveRegular-4LJl.ttf);
@@ -151,6 +156,24 @@
         margin: 5px;
       }
       
+      .gallery-box {
+        outline: 1px solid white;
+        display: inline-block;
+        margin: 5px;
+        padding: 0px;
+        width: 300px;
+        float: left;
+        height: 350px;
+      }
+      .gallery-box p {
+        padding: 3px;
+        font-size: 0.6em;
+      }
+      .gallery-box img, .gallery-box video {
+        max-height: 310px !important;
+        max-width: 300px !important;
+      }
+      
       .band-img, .asset-img {
         max-height: 400px;
         max-width: 600px;
@@ -160,6 +183,33 @@
       .asset-img {
         max-height: 280px !important;
         max-width: 440px !important;
+      }
+      
+      .gallery-box img:hover {
+        cursor: pointer;
+      }
+      
+      .printing-box {
+        width: 350px;
+        height: 450px;
+        margin: 10px;
+      }
+      
+      .printing-desc {
+        height: 100px;
+      }
+      
+      .printing-img-container {
+        width: 350px;
+        height: 260px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .gallery-box img:hover {
+        cursor: pointer;
       }
       
       .printing-box {
@@ -186,7 +236,18 @@
         max-height: 260px;
         display: block;
       }
+      
+      .printing-img {
+        max-width: 350px;
+        max-height: 260px;
+        display: block;
+      }
+      
+      .clearfix {
+        clear: both;
+      }
     </style>
+    <script src="/public/img_box.js"></script>
   </head>
   <body>
     <nav>
@@ -230,8 +291,254 @@
     </nav>
     <hr style="margin: 30px 0px" />
     <h1>
-      Gallery
+      Gallery - click for full size 
     </h1>
-    <b>Will add stuff here soon</b>
+    <hr />
+    <div class="irl">
+      <div class="clearfix"></div>
+      <h2>
+        Painting & Drawing
+      </h2>
+    </div>
+    <div class="stickers">
+      <div class="clearfix"></div>
+      <h2>
+        Stickers and Posters
+      </h2>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess "Pregnant" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/HRG_PREGNART.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess "Piss" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/Screenshot 2023-03-21 004003.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess "Animals Fucking" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/postcard_v2_front.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Assnife sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/assnife.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess "Black Metal" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/hrg_black_metal_x8.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess "graffiti" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/logo2.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess poster
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/final1.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess "90s" logo
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/hrg.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Half Rotten Goddess "Concentric" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/hrg_concentric.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          "Unreadable band name" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/gorenoise.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          "Limitations Imposed By Technology" sticker
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/limits_imposed7.png" />
+      </div>
+    </div>
+    <div class="stickers">
+      <div class="clearfix"></div>
+      <h2>
+        Other 2D and text art
+      </h2>
+      <div class="gallery-box">
+        <p>
+          Randomly generated glyphs
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/glyphs_mosaic.jpg" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Procedural text effects
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/dissonism.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Procedural text outline effects
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/text_art2.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Organic Concentric Growth
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/concentric.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          "Orange you glad I didn't say Banana"
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/orange.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          "Spectrum Distortion"
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/spectrum_distortion2.jpg" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Fake Risograph
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/riso-insta.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          "Spider accident"
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/spider_accident2.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Expanding Lines
+        </p>
+        <img autoplay="true" loop="true" onclick="img_box(this)" src="public/gallery/Expanding_Lines.gif" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          wavy_circle.mp4
+        </p>
+        <img autoplay="true" loop="true" onclick="img_box(this)" src="public/gallery/wavy_circle.gif" />
+      </div>
+    </div>
+    <div class="3d">
+      <div class="clearfix"></div>
+      <h2>
+        3D Renders (Game Engine or standalone)
+      </h2>
+      <div class="gallery-box">
+        <p>
+          Foggy Mountain
+        </p>
+        <img autoplay="true" loop="true" onclick="img_box(this)" src="public/gallery/Nov-30-2020 11-23-16.gif" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Fox Parallax
+        </p>
+        <img autoplay="true" loop="true" onclick="img_box(this)" src="public/gallery/fox_parallax.gif" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Tired Man
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/close_dark.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Tired Man 2
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/close_spotlight.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Playground
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/forest-yard.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Dark Forest
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/forest.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Glass Cube
+        </p>
+        <img loop="true" onclick="img_box(this)" src="public/gallery/moving_cube.gif" />
+      </div>
+      <div class="gallery-box hidden">
+        <p>
+          Ant on Water
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/ant_on_water.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Wireframe Khazix
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/kha2.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Trippy Tentacles
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/trippy_tentacles.jpg" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Ice Cave
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/unknown.png" />
+      </div>
+    </div>
+    <div class="other">
+      <div class="clearfix"></div>
+      <h2>
+        Other
+      </h2>
+      <div class="gallery-box">
+        <p>
+          Creep
+        </p>
+        <img onclick="img_box(this)" src="public/gallery/creep.png" />
+      </div>
+    </div>
+    <div class="ai">
+      <div class="clearfix"></div>
+      <h2>
+        AI Stuff
+      </h2>
+      <div class="gallery-box">
+        <p>
+          Do androids dream of electric sheep? (Dall-e)
+        </p>
+        <img onclick="img_box(this)" src="/public/gallery/ai_manipulated.png" />
+      </div>
+      <div class="gallery-box">
+        <p>
+          Do androids dream of electric sheep? 2 (Dall-e) 
+        </p>
+        <img onclick="img_box(this)" src="/public/gallery/ai_manipulated2.png" />
+      </div>
+    </div>
   </body>
 </html>
