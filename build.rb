@@ -48,6 +48,7 @@ class SiteBuilder
         build_file(src)
       end
     end
+    build_file "./src/index.html"
   end
 
   # Call this from a view to render another sub view. Second argument is optional partial data e.g. { foo: "bar" }
