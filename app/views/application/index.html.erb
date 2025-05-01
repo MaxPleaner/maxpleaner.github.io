@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Track Loader</title>
+  <%= stylesheet_link_tag "application" %>
+  <style>
+    body {
+      margin: 20px 0 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Track Loader</h1>
+
+  <div class="auth-section">
+    <% if spotify_user %>
+      <p class="success-message">Connected to Spotify as <%= spotify_user.display_name %></p>
+      <%= button_to 'Disconnect from Spotify', spotify_logout_path, 
+          method: :delete, 
+          class: 'spotify-button', 
+          style: 'background-color: #e74c3c;',
+          data: { confirm: 'Are you sure you want to disconnect from Spotify?' } %>
+    <% else %>
+      <%= form_tag '/auth/spotify', method: :post, class: 'inline-form' do %>
+        <%= submit_tag "Connect to Spotify", class: "spotify-button" %>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <%= form_tag load_tracks_path, method: :post, class: 'inline-form', style: 'margin-bottom: 10px; display: block;' do %>
+    <%= select_tag :spreadsheet_id, 
+        options_for_select(SPREADSHEET_CONFIGS.keys), 
+        class: 'form-input',
+        style: 'margin-right: 10px; padding: 8px; border-radius: 4px; border: 1px solid #ccc;' %>
+    <%= submit_tag "Load Spreadsheet", class: "load-button" %>
+  <% end %>
+
+  <% if @tracks.any? && spotify_user %>
+    <%= form_tag lookup_spotify_tracks_path, method: :post, class: 'inline-form', style: 'margin-bottom: 10px; display: block;', data: { turbo: true } do %>
+      <%= submit_tag "Look up Albums on Spotify", class: "spotify-button" %>
+      <%= check_box_tag :use_limit, '1', false, 
+          onclick: "document.getElementById('limit').style.display = this.checked ? 'inline' : 'none';" %>
+      <%= label_tag :use_limit, "use limit", style: 'margin-left: 10px; margin-right: 5px; font-weight: 500;' %>
+      <%= number_field_tag :limit, 10, 
+          min: 1,
+          max: 100,
+          class: 'form-input',
+          style: 'padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 70px; display: none;' %>
+    <% end %>
+
+    <%= render partial: 'progress', locals: { current: 0, total: 1, show_progress: false } %>
+    
+    <% if @tracks.any? { |t| t[:spotify_album].present? } %>
+      <%= form_tag lookup_first_tracks_path, method: :post, class: 'inline-form', style: 'margin-bottom: 10px; display: block;', data: { turbo: true } do %>
+        <%= submit_tag "Look up First Track of each Album on Spotify", class: "spotify-button" %>
+      <% end %>
+
+      <%= render partial: 'progress', locals: { current: 0, total: 1, show_progress: false } %>
+      
+      <% if @tracks.any? { |t| t[:spotify_first_track].present? } %>
+        <%= form_tag create_spotify_playlist_path, method: :post, class: 'inline-form', style: 'margin-bottom: 10px; display: block;' do %>
+          <%= submit_tag "Create Spotify Playlist from First Tracks", class: "spotify-button" %>
+          <%= label_tag :playlist_name, "playlist name:", 
+              style: 'margin-left: 10px; margin-right: 5px; font-weight: 500;' %>
+          <%= text_field_tag :playlist_name, 'My Album First Tracks', 
+              class: 'form-input', 
+              placeholder: 'Enter playlist name',
+              style: 'padding: 8px; border-radius: 4px; border: 1px solid #ccc;' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+
+  <% if session[:last_playlist] %>
+    <div class="playlist-link" style="margin: 20px 0; padding: 15px; background: #1DB954; border-radius: 8px; display: inline-block;">
+      <a href="<%= session[:last_playlist][:url] %>" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">
+        Open "<%= session[:last_playlist][:name] %>" on Spotify
+      </a>
+    </div>
+  <% end %>
+
+  <% if @tracks.any? %>
+    <div style="margin-bottom: 10px;">
+      <%= form_tag root_path, method: :get, class: 'inline-form' do %>
+        <%= label_tag :sort_by, "Sort by:", style: 'margin-right: 5px; font-weight: 500;' %>
+        <%= select_tag :sort_by,
+            options_for_select([
+              ['Rank', 'rank'],
+              ['Release Date', 'released']
+            ], params[:sort_by] || 'rank'),
+            class: 'form-input',
+            style: 'padding: 8px; border-radius: 4px; border: 1px solid #ccc; margin-right: 10px;' %>
+        
+        <%= radio_button_tag :sort_direction, 'asc', (params[:sort_direction] || 'asc') == 'asc' %>
+        <%= label_tag :sort_direction_asc, "Ascending", style: 'margin-right: 10px;' %>
+        
+        <%= radio_button_tag :sort_direction, 'desc', params[:sort_direction] == 'desc' %>
+        <%= label_tag :sort_direction_desc, "Descending" %>
+        
+        <%= submit_tag "Sort", class: "load-button" %>
+      <% end %>
+    </div>
+
+    <table class="tracks-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Released</th>
+          <th>Label</th>
+          <th>Genre</th>
+          <th>Votes</th>
+          <th>Average</th>
+          <th>Weighted Average</th>
+          <% if spotify_user %>
+            <th>Spotify</th>
+            <th>First Track</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tracks.each do |track| %>
+          <tr>
+            <td><%= track[:rank] %></td>
+            <td><%= track[:artist] %></td>
+            <td><%= track[:album] %></td>
+            <td><%= track[:released] %></td>
+            <td><%= track[:label] %></td>
+            <td><%= track[:genre] %></td>
+            <td><%= track[:votes] %></td>
+            <td><%= track[:avg] %></td>
+            <td><%= track[:wavg] %></td>
+            <% if spotify_user %>
+              <td>
+                <% if track[:spotify_album] %>
+                  <a href="spotify:album:<%= track[:spotify_album][:uri].split(':').last %>" class="spotify-link">
+                    <%= track[:spotify_album][:name] %><br>
+                    <small>by <%= track[:spotify_album][:artist] %></small>
+                  </a>
+                <% end %>
+              </td>
+              <td>
+                <% if track[:spotify_first_track] %>
+                  <a href="spotify:track:<%= track[:spotify_first_track][:uri].split(':').last %>" class="spotify-link">
+                    <%= track[:spotify_first_track][:name] %><br>
+                    <small><%= (track[:spotify_first_track][:duration_ms] / 1000.0 / 60).round(2) %> minutes</small>
+                  </a>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No tracks loaded yet. Click the button above to load tracks.</p>
+  <% end %>
+</body>
+</html> 
